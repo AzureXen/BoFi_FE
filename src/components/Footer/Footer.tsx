@@ -1,0 +1,116 @@
+import Bofi from "../../assets/footer/bofi.png"
+import DirtyCoins from "../../assets/footer/dirty_coins.png"
+import Facebook from "../../assets/footer/facebook.png"
+import Instagram from "../../assets/footer/instagram_icon.png"
+import Youtube from "../../assets/footer/youtube.png"
+import {motion} from "framer-motion";
+
+import "./Footer.css"
+const Footer = () =>{
+    return (
+        <div className="footer">
+            <div className="footer-content">
+                <div className="about">
+                    <div className="about-dirtycoins">
+                        <img className={"dirty-coins-banner"} src={DirtyCoins} alt={"dirty-coins-banner"}/>
+
+
+
+                        <div className="dirtycoins-social-media">
+                            <motion.a whileHover={{scale:1.1}}
+
+                                href="https://www.instagram.com/dirtycoins.vn/" target="_blank"
+                               rel="noopener noreferrer">
+                                <div className="icon-holder">
+                                    <img className={"instagram-icon"} src={Instagram} alt={"instagram-icon"}/>
+                                </div>
+                            </motion.a>
+
+                            <motion.a whileHover={{scale:1.1}} href="https://www.facebook.com/DirtyCoins.VN/" target="_blank"
+                               rel="noopener noreferrer">
+                                <div className="icon-holder">
+                                    <img className={"facebook-icon"} src={Facebook} alt={"facebook-icon"}/>
+                                </div>
+                            </motion.a>
+
+                            <motion.a whileHover={{scale:1.1}} href="https://www.youtube.com/channel/UCxLwKCNi6FoZ0lKu6k3qFGA" target="_blank"
+                               rel="noopener noreferrer">
+                                <div className="icon-holder">
+                                    <img className={"youtube-icon"} src={Youtube} alt={"youtube-icon"}/>
+                                </div>
+                            </motion.a>
+
+                        </div>
+                    </div>
+                    <div className="about-bofi">
+                        <div className="bofi-banner-container">
+                            <img className={"bofi-banner"} src={Bofi} alt={"bofi-banner"}/>
+                        </div>
+                        <div className="bofi-description">
+                            <h5>BOFI TECHNOLOGY:</h5>
+                            <p>Choose your sizes with BoFi</p>
+                            <p>Measurement History</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="contact">
+                    <div className="hotline">
+                        <h5>PURCHASE/SUPPORT:</h5>
+                        <h4>0933 800 190</h4>
+                    </div>
+
+                    <div className="email">
+                        <h5>EMAIL: </h5>
+                        <p>csteamdcs@gmail.com</p>
+                    </div>
+
+                    <div className="extra-links">
+                        <p>Privacy & Policy</p>
+                        <p>FAQ</p>
+                        <p>Membership</p>
+                        <p>Warranty & Return Policy</p>
+                    </div>
+
+                </div>
+                <div className="location">
+                    <h5 className={"title"}>SHOP SYSTEM</h5>
+
+                    <p className={"branch-name"}>Ho Chi Minh Branch:</p>
+                    <p className={"store"}>Binh Tan District - Floor 1 TTTM Aeon Mall Bình Tân, No.1 Street 17A, Ward
+                        Binh
+                        Tri Dong B.</p>
+                    <p className={"store"}>Thu Duc City - District 9 - Floor 2 TTTM Vincom Mega Mall.</p>
+
+                    <p className={"branch-name"}>Vinhomes Grand Park:</p>
+                    <p className={"store"}>District 1 - 160 Nguyen Cu Trinh, Ward Nguyen Cu Trinh.</p>
+                    <p className={"store"}>District 10 - 561 Su Van Hanh, Ward 13.</p>
+                    <p className={"store"}>District 1 - The New Playground 26 Ly Tu Trong, Ben Nghe Ward.</p>
+
+                    <p className={"branch-name"}>Vinhomes Grand Park:</p>
+                    <p className={"store"}>District 1 - 160 Nguyen Cu Trinh, Ward Nguyen Cu Trinh.</p>
+                    <p className={"store"}>District 10 - 561 Su Van Hanh, Ward 13.</p>
+                    <p className={"store"}>District 1 - The New Playground 26 Ly Tu Trong, Ben Nghe Ward.</p>
+
+                    <p className={"branch-name"}>Go Vap District - 326 Quang Trung, Ward 10.Bien Hoa Branch:</p>
+                    <p className={"store"}>Bien Hoa City - 151A Phan Trung, Tan Mai Ward.</p>
+
+                    <p className={"branch-name"}>Binh Duong Branch:</p>
+                    <p className={"store"}>Thu Dau Mot City - 28 Yersin, Hiep Thanh Ward.Can Tho Branch</p>
+                    <p className={"store"}>Ninh Kieu District - 52 Mau Than, An Phu Ward</p>
+
+                    <p className={"branch-name"}>Ha Noi Branch:</p>
+                    <p className={"store"}>Ha Dong District - Floor 2 TTTM Aeon Mall Ha Dong Hoang Van.</p>
+                    <p className={"store"}>Thu Residential Area , Duong Noi WardHung Yen Branch:</p>
+                    <p className={"store"}>Van Giang District - PT.TV 136 - Mega Grand World - Ocean Park</p>
+
+                    <p className={"branch-name"}>Hai Phong Branch:</p>
+                    <p className={"store"}>Le Chan District - Floor 2 TTTM Aeon Mall Hai Phong Le Chan 10</p>
+                    <p className={"store"}>Vo Nguyen Giap, Kenh Duong Ward</p>
+                </div>
+            </div>
+            <div style={{color: 'var(--bg-color)', height: '1px', width: '100%'}}></div>
+            <p className={"copyright"}>Copyright © 2023 Dirty Coins Studio. Powered by StraDe</p>
+        </div>
+    )
+}
+export default Footer;

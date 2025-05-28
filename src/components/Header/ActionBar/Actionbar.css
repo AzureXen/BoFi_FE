@@ -1,0 +1,76 @@
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-color-2);
+    padding: 0;
+}
+
+.left-action-bar {
+    display: flex;
+    align-items: center;
+}
+
+.dirty-coin-img {
+    width: 5em;
+    margin-left: 40px;
+    height: auto;
+}
+
+.right-action-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.upload {
+    width: 2em;
+    height: auto;
+    margin-right: 20px;
+}
+
+.search-bar {
+    display: inline-block;
+    margin-right: 20px;
+    width: 206px;
+    background-color: #D9D9D9;
+    border-radius: 13px;
+    text-align: left;
+}
+
+.search-icon {
+    display: inline-block;
+    width: 2.5em;
+    height: auto;
+    position: relative;
+    left: 10px;
+    top: 2px;
+}
+
+.upload, .cart, .user, .map {
+    width: 2.5em;
+    height: auto;
+    margin-right: 20px;
+}
+
+.regions {
+    display: flex;
+    align-items: center;
+    color: var(--main-color-2);
+}
+
+.regions p {
+    margin: 0 10px; /* Spacing between region codes */
+    color: var(--main-color-1);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.regions p.chosen-region
+{
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-underline-color: var(--main-color-1);
+}
+.region-separate{
+    height: 30px;
+}

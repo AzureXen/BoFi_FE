@@ -1,0 +1,139 @@
+.footer-content{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about, .location {
+    display:inline-block;
+    width:40%;
+    margin-top: 40px;
+}
+.contact{
+    display:inline-block;
+    width:20%;
+    margin-top: 40px;
+
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+
+.about-dirtycoins {
+}
+
+.dirty-coins-banner {
+    width:100%;
+    height:auto;
+}
+
+.dirtycoins-social-media {
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.icon-holder {
+    width: 75px;
+    height: 50px;
+    display:flex;
+    justify-content: center;
+    transform: translateX(-25px);
+}
+
+.instagram-icon, .facebook-icon, .youtube-icon {
+    margin: 0 20px;
+}
+
+.bofi-banner-container{
+    width:100%;
+    text-align: left;
+    margin-left: 50px;
+}
+.bofi-banner {
+    display: inline-block;
+    width:100px;
+    height:auto;
+}
+
+.about-bofi {
+}
+
+.bofi-description {
+    margin-left: 64px;
+    text-align: left;
+}
+.bofi-description h5{
+    font-size: large;
+    margin: 0;
+}
+
+.bofi-description p{
+    margin:0;
+    font-size: 13px;
+}
+
+.contact{
+    text-align: left;
+}
+
+.hotline {
+
+}
+
+.hotline h5{
+    margin: 50px 0 0 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+.hotline h4{
+    margin: 0;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.email {
+    margin: 35px 0;
+}
+.email h5{
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.email p{
+    margin: 0;
+    font-size: 1.2em;
+}
+.extra-links p{
+    margin: 5px 0;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+.location{
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 70px;
+    padding-bottom: 30px;
+}
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.branch-name {
+    margin: 0;
+    font-weight: 500;
+}
+
+.store {
+    font-weight: 400;
+    margin: 0;
+}
+
+.copyright {
+    width: 100%;
+    background-color: var(--main-color-1);
+    margin: 0;
+    padding: 15px;
+}

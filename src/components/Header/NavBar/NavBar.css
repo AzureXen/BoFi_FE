@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.navbar-item{
+    display: inline-block;
+    width: 96px;
+    padding: 0.6em 0;
+    margin: 0 2.5em;
+    background-color: var(--main-color-1);
+    text-align: center;
+    transition: background-color 0.1s ease-in-out;
+}
+.navbar-item:hover{
+    cursor: pointer;
+    background-color: var(--main-color-1);
+}
+.navbar-item-img{
+    width: 30px;
+    height: 30px;
+}
+.navbar-item-name{
+    margin: 0;
+    width:100%;
+}

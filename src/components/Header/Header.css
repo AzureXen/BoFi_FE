@@ -1,0 +1,11 @@
+.notification{
+    background-color: var(--main-color-1);
+    border-radius: 0;
+}
+.notification-message{
+    color: var(--main-color-2);
+    font-weight: 500;
+    font-size: 1.5em;
+    margin:0;
+    padding: 0.2em 0;
+}
