@@ -1,3 +1,161 @@
-.login-page{
-    color: var(--main-color-1)
+.login-page {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    box-sizing: border-box;
+    background-color: var(--main-color-2)
+}
+
+.icon-display, .login-form, .register-options{
+    width:33%;
+}
+
+.register-options{
+    display:flex;
+    justify-content: center ;
+    flex-direction: column;
+    transform: translateY(-20px);
+}
+
+.register-options h2{
+    font-size: 2em;
+}
+
+.register-icon-group{
+    display:flex;
+    justify-content: center;
+}
+
+.register-icon-holder{
+    background-color: #D9D9D9;
+    border-radius: 90px;
+    height: 49px;
+    width: 49px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px;
+}
+.register-icon:Hover{
+    filter: brightness(0) invert(1)
+}
+
+.register-icon{
+    width: 80%;
+    height: 80%;
+}
+
+.icon-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page .icon-holder {
+    width: 300px;
+    height: 350px;
+}
+
+.login-page .dirty-coin {
+    height: 100%;
+    width: 100%;
+}
+
+.login-form {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+}
+
+.login-input {
+    position: relative;
+}
+.login-input:first-child {
+    margin-bottom: 20px;
+}
+
+.login-input-icon {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.register-icon-holder:hover{
+    cursor: pointer;
+}
+
+.register-icon-holder #gmail:hover{
+
+}
+
+.register-icon-holder #facebook:hover{
+
+}
+
+
+
+.login-input-box {
+    margin-top: 10px;
+}
+
+.login-page input {
+    width: 100%;
+    padding: 15px 10px 15px 40px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    outline: none;
+    transition: border-color 0.3s;
+    color: var(--main-color-1);
+}
+
+.login-page input:focus {
+    border-color: #007bff;
+}
+
+.login-page label {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    color: var(--main-color-1);
+    transition: 0.2s;
+    pointer-events: none;
+}
+
+.login-page input:focus + label,
+.login-page input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 40px;
+    font-size: 12px;
+}
+
+.login-page button {
+    width: 45%;
+    padding: 15px;
+    background-color: var(--main-color-1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.forgot-password{
+    margin: 7px 0;
+    text-align: right;
+    color: gray;
+}
+
+.forgot-password:hover{
+    cursor: pointer;
+    color: #a1a1a1;
+}
+
+.forgot-password:active{
+    color: #cacaca;
 }
