@@ -1,0 +1,50 @@
+.contact-page{
+    color: var(--main-color-1);
+    margin: 75px 125px;
+}
+
+.contact-page .title{
+    text-align: left;
+    margin: 20px 0;
+}
+
+.contact-page .title h4{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.contact-page .title h5 {
+    font-weight: 400;
+}
+
+.contact-page .contact-main .choose-location{
+    width: 40%;
+    height:75vh;
+    overflow: scroll;
+    display:flex;
+    flex-direction: column;
+}
+
+.contact-page .contact-main .choose-location::-webkit-scrollbar{
+    background: rgb(237, 237, 237);
+    width:7px;
+    height:0;
+}
+
+.contact-page .contact-main .choose-location::-webkit-scrollbar-thumb {
+    background-color: rgb(202, 202, 202);
+    border-radius: 4px;
+}
+
+.contact-page .contact-main{
+    display:flex;
+}
+
+.contact-page .contact-main .location-display-container{
+    height:75vh;
+    margin-left: 40px;
+}
+.contact-page .contact-main .location-display{
+    height: 100%;
+    width: 100%;
+}

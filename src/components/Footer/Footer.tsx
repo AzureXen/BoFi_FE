@@ -44,7 +44,11 @@ const Footer = () =>{
                     </div>
                     <div className="about-bofi">
                         <div className="bofi-banner-container">
-                            <img className={"bofi-banner"} src={Bofi} alt={"bofi-banner"}/>
+                            <a href={"/bofi"}>
+                                <motion.img
+                                    whileHover={{scale:1.05}}
+                                    className={"bofi-banner"} src={Bofi} alt={"bofi-banner"}/>
+                            </a>
                         </div>
                         <div className="bofi-description">
                             <h5>BOFI TECHNOLOGY:</h5>
@@ -65,10 +69,18 @@ const Footer = () =>{
                     </div>
 
                     <div className="extra-links">
-                        <p>Privacy & Policy</p>
-                        <p>FAQ</p>
-                        <p>Membership</p>
-                        <p>Warranty & Return Policy</p>
+                        <motion.a
+                            whileHover={{scaleX: 1.05}}
+                            href={"/privacy"}>Privacy & Policy</motion.a> <br/>
+                        <motion.a
+                            whileHover={{scaleX: 1.05}}
+                            href={"#"} onClick={(e) => e.preventDefault()}>FAQ</motion.a> <br/>
+                        <motion.a
+                            whileHover={{scaleX: 1.05}}
+                            href={"#"} onClick={(e) => e.preventDefault()}>Membership</motion.a> <br/>
+                        <motion.a
+                            whileHover={{scaleX: 1.05}}
+                            href={"/warranty"}>Warranty & Return Policy</motion.a> <br/>
                     </div>
 
                 </div>

@@ -1,0 +1,32 @@
+.location-page{
+    width:98%;
+    margin: 10px 0;
+    padding: 12px 5px;
+    background: rgb(237, 237, 237);
+}
+
+.location-page:hover{
+    cursor: pointer;
+}
+
+.location-page .title{
+    margin:0;
+}
+
+.location-page .title h4{
+    font-size: 1.15rem;
+    font-weight: normal;
+}
+
+.detail{
+    display: flex;
+    text-align: left;
+}
+
+.location-page .detail img{
+    margin-right: 4px;
+    height:12px;
+    width: auto;
+    display: inline-block;
+    transform: translateY(3px);
+}

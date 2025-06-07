@@ -1,0 +1,14 @@
+.short-banner {
+    margin: 45px 0;
+    height:200px;
+    background-position: center;
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-title{
+    background-color: black;
+    padding:7px 35px;
+}

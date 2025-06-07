@@ -1,9 +1,11 @@
 .navbar{
+    position: relative;
     display: flex;
     justify-content: center;
     background-color: black;
 }
 .navbar-item{
+    position: relative;
     display: inline-block;
     width: 96px;
     padding: 0.6em 0;
@@ -18,9 +20,24 @@
 }
 .navbar-item-img{
     width: 30px;
-    height: 30px;
+    height: 26px;
 }
 .navbar-item-name{
     margin: 0;
     width:100%;
+}
+
+.sub-nav{
+    position: absolute;
+    left: 2px;
+    width:100%;
+}
+
+.sub-nav-item:hover{
+    background-color: rgba(0, 0, 0, 0.81);
+}
+.sub-nav-item{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    text-align: center;
 }

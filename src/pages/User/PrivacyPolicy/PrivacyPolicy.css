@@ -1,0 +1,17 @@
+.privacy-policy{
+    color: black;
+}
+.privacy-policy h5{
+    font-size: 24pt;
+    margin: 35px 0;
+    font-weight: 500;
+}
+
+.huge-chunk-of-text-container{
+    margin: 0 125px 175px 125px;
+    font-size: 15pt;
+}
+
+.huge-chunk-of-text-container p{
+    margin-bottom: 50px;
+}

@@ -16,6 +16,9 @@
     margin-left: 40px;
     height: auto;
 }
+.dirty-coin-img:hover{
+    cursor:pointer;
+}
 
 .right-action-bar {
     display: flex;
@@ -38,6 +41,7 @@
     background-color: #D9D9D9;
     border-radius: 13px;
     text-align: left;
+    height:35px;
 }
 
 .search-bar input{
@@ -64,19 +68,19 @@
 }
 
 
-.regions {
+.regions-group {
     display: flex;
     align-items: center;
     color: var(--main-color-2);
 }
 
-.regions p {
+.regions-group p {
     margin: 0 10px; /* Spacing between region codes */
     color: var(--main-color-1);
     font-size: 1.6rem;
     font-weight: bold;
 }
-.regions p.chosen-region
+.regions-group p.chosen-region
 {
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -84,4 +88,8 @@
 }
 .region-separate{
     height: 30px;
+}
+
+.region:hover{
+    cursor: pointer;
 }

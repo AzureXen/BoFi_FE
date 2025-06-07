@@ -55,6 +55,10 @@
     height:auto;
 }
 
+.bofi-banner:hover{
+    cursor: pointer;
+}
+
 .about-bofi {
 }
 
@@ -104,11 +108,15 @@
     margin: 0;
     font-size: 1.2em;
 }
-.extra-links p{
+.extra-links a{
     margin: 5px 0;
     font-weight: 500;
     font-size: 1.3em;
+    color: var(--main-color-2);
+    display: inline-block;
 }
+
+
 .location{
     text-align: right;
     box-sizing: border-box;

@@ -8,28 +8,39 @@ import Line from "../../../assets/actionbar-icons/line.png"
 import "./Actionbar.css"
 import {motion} from "framer-motion";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 const ActionBar = () =>{
     const [query, setQuery] = useState("");
 
+    const [usingEnglish, setUsingEnglish] = useState(true);
+
     const handleSearch = (e: { preventDefault: () => void }) => {
         e.preventDefault();
-        // Implement your search logic here
         console.log("Searching for:", query);
-        // Example: Redirect to a search results page
-        // window.location.href = `/search?query=${query}`;
     };
+
+    const navigate = useNavigate();
+
     return(
         <>
             <div className="action-bar">
                 <div className="left-action-bar">
-                    <img className={"dirty-coin-img"} src={DirtyCoins} alt={"DirtyCoin"}/>
+                    <img className={"dirty-coin-img"} src={DirtyCoins} alt={"DirtyCoin"}
+                         onClick={()=>{
+                             navigate("/")
+                         }}
+
+                    />
                 </div>
 
                 <div className="right-action-bar"
                 >
                     <motion.img className={"upload"} src={Upload} alt={"Upload"}
                     variants={{whileHover:{scale:1.1}}}
-                            whileHover={"whileHover"}
+                                whileHover={"whileHover"}
+                                onClick={()=>{
+                                    navigate("/upload")
+                                }}
                     />
                     <div className="search-bar">
                         <motion.img
@@ -44,27 +55,43 @@ const ActionBar = () =>{
                                 type="text"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
-                                placeholder="Search..."
+                                placeholder=""
                                 className="search-input"
                                 required
                             />
 
                         </form>
                     </div>
-                    <motion.img className={"cart"} src={Cart} alt={"Cart"}
+                    <motion.img className={"cart"} src={Cart} alt={"Cart    "}
                                 variants={{whileHover: {scale: 1.1}}}
                                 whileHover={"whileHover"}
                     />
-                    <motion.img className={"user"} src={User} alt={"User"}
+                    <motion.img className={"user"} src={User} alt={"UserIcon"}
                                 variants={{whileHover: {scale: 1.1}}}
                                 whileHover={"whileHover"}
+                                onClick={()=>{
+                                    navigate("/login")
+                                }}
                     />
                     <motion.img className={"map"} src={MapPin} alt={"MapPin"}
                                 variants={{whileHover: {scale: 1.1}}}
                                 whileHover={"whileHover"}
+                                onClick={()=>{
+                                    navigate("/contact")
+                                }}
                     />
-                    <div className="regions">
-                        <p>VI</p> <img className={"region-separate"} src={Line} alt={""}/> <p className={"chosen-region"}>EN</p>
+                    <div className="regions-group">
+                        <motion.p
+                            whileHover={{scale:1.1}}
+                            className={`region ${usingEnglish ? "" : "chosen-region"}`}
+                            onClick={()=>{setUsingEnglish(false)}}
+                        >VI</motion.p>
+                        <img className={"region-separate"} src={Line} alt={""}/>
+                        <motion.p
+                            whileHover={{scale:1.1}}
+                            className={`region ${usingEnglish ? "chosen-region" : ""}`}
+                            onClick={()=>{setUsingEnglish(true)}}
+                        >EN</motion.p>
                     </div>
                 </div>
             </div>

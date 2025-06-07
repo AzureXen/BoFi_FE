@@ -1,0 +1,43 @@
+.bofi-technology .bofi-icon{
+    height: auto;
+    width: 100px;
+}
+
+.bofi-technology .slogan{
+    height: 60px;
+    width: auto;
+}
+
+
+.bofi-technology .img-container{
+    width:100%;
+    height: auto;
+    padding: 20px 0;
+}
+
+.bofi-technology .description-group{
+    color: var(--main-color-1);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+.bofi-technology .description{
+    font-size: 20px;
+}
+
+.illustrations{
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.illustrations .bofi-demo{
+    height:510px;
+    width: 599px;
+    transform: translateX(75px);
+}
+.illustrations .devbie{
+    height:568px;
+    width:464px;
+    transform: translateX(360px);
+}
+

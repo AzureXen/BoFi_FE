@@ -1,0 +1,92 @@
+.upload-image {
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    text-align: center; /* Center align text */
+    background-color: var(--main-color-2);
+    border-radius: 10px; /* Rounded corners */
+}
+
+.upload-area-container{
+    display:flex;
+    justify-content: center;
+}
+
+.upload-area {
+    background-color: #D9D9D9;
+    border-radius: 42px;
+    height: 500px;
+    width: 500px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.upload-guide{
+    margin: 120px 0;
+    font-size: 1.5rem;
+    color: var(--main-color-1);
+}
+.upload-icon{
+    margin: 20px 0;
+    height: 124px;
+    width: 124px;
+}
+.upload-notice{
+    margin: 10px 0;
+    color: var(--main-color-1);
+}
+
+
+.upload-area p {
+    margin: 0; /* Remove default margin */
+    color: #666; /* Text color */
+}
+
+.receive-sizes {
+    padding: 10px 20px;
+    background-color: var(--main-color-1); /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.extra-information .bofi-icon{
+    height: auto;
+    width: 100px;
+}
+
+.extra-information .slogan{
+    height: 60px;
+    width: auto;
+}
+
+
+.extra-information .img-container{
+    width:100%;
+    height: auto;
+    padding: 20px 0;
+}
+
+.extra-information .description-group{
+    color: var(--main-color-1);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+.extra-information .description{
+    font-size: 20px;
+}
+
+.extra-information .description:last-child{
+    margin-bottom: 50px;
+}
+
+.divider{
+    display: block;
+    height: 1px;
+    width: 40%;
+    margin: 30px 30%;
+    background-color: var(--main-color-1);
+}

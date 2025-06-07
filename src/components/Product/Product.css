@@ -1,0 +1,31 @@
+.products-container {
+    box-sizing: border-box;
+    margin: 0 125px 125px 125px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    color: black;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    height: 250px;
+}
+
+.product:hover {
+}
+
+.product-image {
+    width:160px;
+    height:200px;
+}
+
+.product-name {
+    font-weight: 500;
+}
+
+.product-price {
+
+}

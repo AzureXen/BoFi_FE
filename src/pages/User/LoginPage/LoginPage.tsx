@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./LoginPage.css";
 import Header from "../../../components/Header/Header.tsx";
 import Footer from "../../../components/Footer/Footer.tsx";
 import {motion} from "framer-motion";
 
 import dirtyCoins from "../../../assets/login-page/dirty-coins.png"
-// import hidePassword from "../../../assets/login-page/hide-password.png"
-// import showPassword from "../../../assets/login-page/show-password.png"
+import hidePasswordIcon from "../../../assets/login-page/hide-password.png"
+import showPasswordIcon from "../../../assets/login-page/show-password.png"
 import passwordIcon from "../../../assets/login-page/password-icon.png"
-// import regEmail from "../../../assets/login-page/reg-email.png"
-// import regFacebook from "../../../assets/login-page/reg-facebook.png"
-// import regTwitter from "../../../assets/login-page/reg-twitter.png"
 
 import regEmailSVG from "../../../assets/login-page/SVGs/reg-email.svg"
 import regFacebookSVG from "../../../assets/login-page/SVGs/reg-facebook.svg"
@@ -18,19 +15,47 @@ import regTwitterSVG from "../../../assets/login-page/SVGs/reg-twitter.svg"
 
 import userIcon from "../../../assets/login-page/user-icon.png"
 
+import {useAuth} from "../../../components/Authentication/AuthProvider.tsx";
+import {useNavigate} from "react-router-dom";
+
 const LoginPage = () => {
+    const { login, user } = useAuth();
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [showPassword, setShowPassword] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const navigate = useNavigate();
+
+    function togglePassword() {
+        setShowPassword(prev => !prev);
+    }
+
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle login logic here
-        console.log("Username:", username);
-        console.log("Password:", password);
+        try {
+            const success = await login(username, password);
+
+            if (success) {
+                navigate("/");
+            } else {
+                alert("Login failed");
+            }
+        } catch (error: unknown) {
+            console.error("LoginPage: Error while logging in");
+            console.error(error);
+        }
     };
 
+    useEffect(() => {
+        if (user) {
+            navigate("/");
+            console.log("User already logged in. Navigating back to homepage.");
+        }
+    }, [user, navigate]);
+
     return (
-        <>
+        <div>
             <Header />
             <div className="login-page">
                 <div className="icon-display">
@@ -55,10 +80,10 @@ const LoginPage = () => {
                             </div>
                         </div>
                         <div className="login-input">
-                            <img className="login-input-icon" src={passwordIcon} alt="Password Icon" />
+                            <img className="login-input-icon" src={passwordIcon} alt="Password Icon"/>
                             <div className="login-input-box">
                                 <input
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -67,12 +92,27 @@ const LoginPage = () => {
                                 />
                                 <label htmlFor="password">Password</label>
                             </div>
+                            <motion.img src={showPassword ? showPasswordIcon : hidePasswordIcon}
+                                 onClick={() => {
+                                     togglePassword();
+                                 }}
+                                 alt="show/hide icon"
+                                 className="showHidePassword"
+                                        whileHover={{
+                                            scale: 1.2,
+                                            rotate: 10,
+                                            filter: 'brightness(1.2)',
+                                        }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ type: 'spring', stiffness: 300 }}
+                            />
                         </div>
                         <p className={"forgot-password"}>Forgot Password?</p>
                         <motion.button
-                            whileHover={{scale:1.05}}
-                            whileTap={{scale:1}}
-                            type="submit">Login</motion.button>
+                            whileHover={{scale: 1.05}}
+                            whileTap={{scale: 1}}
+                            type="submit">Login
+                        </motion.button>
                     </form>
                 </div>
                 <div className="register-options">
@@ -97,7 +137,7 @@ const LoginPage = () => {
                 </div>
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 

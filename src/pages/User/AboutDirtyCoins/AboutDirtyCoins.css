@@ -1,0 +1,18 @@
+.about-dirty-coins{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.about-dirty-coins .img-container img{
+    width:100%;
+    height:auto;
+}
+
+.about-dirty-coins .img-container img:last-child{
+    margin-bottom:70px;
+}
+
+.about-dirty-coins .img-container{
+    width: 60%;
+}

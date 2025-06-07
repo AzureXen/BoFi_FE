@@ -159,3 +159,13 @@
 .forgot-password:active{
     color: #cacaca;
 }
+
+.showHidePassword{
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    width: 23px;
+}
+.showHidePassword:hover{
+    cursor: pointer;
+}
