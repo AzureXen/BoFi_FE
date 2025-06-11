@@ -8,6 +8,7 @@ const ProductGrid: React.FC<{ products: Product[] }> = ({ products }) => {
             {products.map((product, index) => (
                 <ProductCard
                     key={index}
+                    productId={product.productId.toString()}
                     imgUrl={product.productImageUrl}
                     productName={product.productName}
                     productPrice={product.productPrice.toString()}

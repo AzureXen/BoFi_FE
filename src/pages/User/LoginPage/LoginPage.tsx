@@ -34,12 +34,14 @@ const LoginPage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const success = await login(username, password);
+            const result = await login(username, password);
 
-            if (success) {
+            if (result.success) {
+                console.log("Login Success!");
                 navigate("/");
             } else {
-                alert("Login failed");
+                console.error("Login failed.");
+                console.error(result.error);
             }
         } catch (error: unknown) {
             console.error("LoginPage: Error while logging in");

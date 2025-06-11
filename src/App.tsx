@@ -11,6 +11,8 @@ import UploadImage from "./pages/User/UploadImage/UploadImage.tsx";
 import AboutDirtyCoins from "./pages/User/AboutDirtyCoins/AboutDirtyCoins.tsx";
 import ProductDisplay from "./pages/User/ProductDisplay/ProductDisplay.tsx";
 import {AuthProvider} from "./components/Authentication/AuthProvider.tsx";
+import ProductDetail from "./pages/User/ProductDetail/ProductDetail.tsx";
+import MeasuringOutcome from "./pages/User/MeasuringOutcome/MeasuringOutcome.tsx";
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
                 <Route path="/warranty" element={<WarrantyReturn/>} />
                 <Route path="/upload" element={<UploadImage/>} />
                 <Route path="/dirtycoins" element={<AboutDirtyCoins/>} />
-                <Route path="/products" element={<ProductDisplay/>} />
+                <Route path="/products/:typeParam?" element={<ProductDisplay/>} />
+                <Route path="/products/detail/:productId" element={<ProductDetail/>} />
+                <Route path="/measure" element={<MeasuringOutcome/>} />
             </Routes>
         </BrowserRouter>
     </AuthProvider>

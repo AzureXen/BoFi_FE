@@ -1,0 +1,60 @@
+.product-display .pagination{
+    margin: 20px 0;
+}
+.no-available-product{
+    color:black;
+    margin-bottom: 35px;
+    font-weight: bold;
+}
+
+.size-search-input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    margin: 10px 0; /* Space around the input */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    background-color: var(--main-color-2);
+    color: var(--main-color-1);
+    display: inline-block;
+}
+
+.size-search{
+    display: inline-block;
+    width: 100px;
+}
+
+
+.size-search-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+
+.product-display .product-filter{
+    margin: 0 160px 45px 160px;
+    border-bottom: solid var(--main-color-1) 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.product-filter .sort{
+    display: inline-block;
+    width: 180px;
+    height:100%;
+}
+.product-filter .sort .sort-select{
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    margin: 10px 0; /* Space around the input */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    background-color: var(--main-color-2);
+    color: var(--main-color-1);
+    display: inline-block;
+}
+.product-filter-item{
+    margin: 0 10px;
+}

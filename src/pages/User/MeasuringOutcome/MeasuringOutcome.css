@@ -1,0 +1,59 @@
+.measuring-outcome{
+    margin: 50px 0;
+    color: var(--main-color-1);
+    display:flex;
+}
+.measuring-outcome .devbie-container{
+    width:40%;
+    height:500px;
+}
+.measuring-outcome .devbie-container .devbie{
+    width: 809px;
+    height: 991px;
+    bottom: -250px;
+    left: -350px;
+    position: absolute;
+    z-index: -1;
+}
+.measuring-result{
+    width: 60%;
+}
+
+.measurement{
+    display:flex;
+    justify-content: flex-start;
+}
+
+.measurement-section{
+    width: 40%;
+    text-align: left;
+}
+
+.measurement-section h5{
+    font-size: 20px;
+}
+.measurement-section p{
+    font-size: 20px;
+}
+.sync-size{
+    margin: 30px 0;
+    text-align: left;
+}
+.sync-size p{
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sync-size button{
+    border-radius: 0;
+    font-size: 20px;
+    padding: 10px 50px;
+    margin: 15px 0;
+}
+
+.random-line{
+    height: 45px;
+    border-left: 3px solid var(--main-color-1);
+    margin: 5px 0;
+}

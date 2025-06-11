@@ -1,16 +1,22 @@
 import "./ProductGrid.tsx"
-
+import {useNavigate} from "react-router-dom";
 interface productProps{
+    productId: string;
     imgUrl: string,
     productName: string,
     productPrice: string,
 }
-const ProductCard:React.FC<productProps> = ({imgUrl, productName, productPrice}) =>{
+const ProductCard:React.FC<productProps> = ({imgUrl, productName, productPrice, productId}) =>{
+    const navigate = useNavigate();
     return(
-        <div className={"product"}>
-            <img className={"product-image"} src={imgUrl} alt="productName"/>
-            <p className={"product-name"}>{productName}</p>
-            <p className={"product-price"}>${productPrice}</p>
+        <div
+            onClick={()=>navigate(`/products/detail/${productId}`)}
+            className={"product"}>
+            <div className="product-image-container">
+                <img className={"product-image"} src={imgUrl} alt="productName"/>
+            </div>
+            <div className={"product-name"}>{productName}</div>
+            <div className={"product-price"}>${productPrice}</div>
         </div>
     )
 }

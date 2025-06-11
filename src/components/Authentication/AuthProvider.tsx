@@ -67,6 +67,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             });
 
             const data = response.data;
+            console.log("response data: ");
+            console.log(data);
 
             if (data.error_code === 0) {
                 const newToken = data.data.access_token;
