@@ -55,3 +55,4 @@ export interface ProductResponse {
     items: Product[];
     paging: PagingInfo;
 }
+

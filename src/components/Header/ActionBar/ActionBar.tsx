@@ -1,4 +1,4 @@
-import DirtyCoins from "../../../assets/actionbar-icons/dirty_coins.png"
+import DirtyCoins from "../../../assets/actionbar-icons/dirty_coins_nobg.png"
 import MapPin from "../../../assets/actionbar-icons/map_pin.png"
 import Search from "../../../assets/actionbar-icons/search.png"
 import Cart from "../../../assets/actionbar-icons/shopping_cart.png"
@@ -25,20 +25,41 @@ const ActionBar = () =>{
         <>
             <div className="action-bar">
                 <div className="left-action-bar">
-                    <img className={"dirty-coin-img"} src={DirtyCoins} alt={"DirtyCoin"}
-                         onClick={()=>{
-                             navigate("/")
-                         }}
-
+                    <motion.img
+                        className="dirty-coin-img"
+                        src={DirtyCoins}
+                        alt="DirtyCoin"
+                        onClick={() => navigate("/")}
+                        initial={{rotate: -20, scale: 0.9, opacity: 0}}
+                        animate={{
+                            rotate: [-20, 0, 20, 0, -20], // back and forth
+                            scale: [1, 1.05, 1, 0.95, 1],
+                            opacity: 1
+                        }}
+                        transition={{
+                            duration: 2.5,
+                            repeatDelay: 1.5,
+                            ease: "easeInOut"
+                        }}
+                        whileHover={{
+                            scale: 1.2,
+                            rotate: 360,
+                            transition: {duration: 0.6}
+                        }}
+                        whileTap={{
+                            scale: 0.8,
+                            rotate: -10,
+                            transition: {type: "spring", stiffness: 300}
+                        }}
                     />
                 </div>
 
                 <div className="right-action-bar"
                 >
                     <motion.img className={"upload"} src={Upload} alt={"Upload"}
-                    variants={{whileHover:{scale:1.1}}}
+                                variants={{whileHover: {scale: 1.1}}}
                                 whileHover={"whileHover"}
-                                onClick={()=>{
+                                onClick={() => {
                                     navigate("/upload")
                                 }}
                     />
@@ -62,7 +83,7 @@ const ActionBar = () =>{
 
                         </form>
                     </div>
-                    <motion.img className={"cart"} src={Cart} alt={"Cart    "}
+                    <motion.img className={"cart"} src={Cart} alt={"Cart"}
                                 variants={{whileHover: {scale: 1.1}}}
                                 whileHover={"whileHover"}
                     />
@@ -70,7 +91,7 @@ const ActionBar = () =>{
                                 variants={{whileHover: {scale: 1.1}}}
                                 whileHover={"whileHover"}
                                 onClick={()=>{
-                                    navigate("/login")
+                                    navigate("/profile")
                                 }}
                     />
                     <motion.img className={"map"} src={MapPin} alt={"MapPin"}

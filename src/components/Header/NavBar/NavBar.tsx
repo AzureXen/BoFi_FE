@@ -81,7 +81,7 @@ const fetchAllTypes = async (): Promise<ProductType[]> => {
 const navItems = [
     // {itemName: "Products", itemImgUrl: ProductsIcon, navPath: "/"},
     {itemName: "Collab's", itemImgUrl: CollabsIcon, navPath: "/"},
-    {itemName: "Wishlist", itemImgUrl: WishlistIcon, navPath: "/"},
+    {itemName: "Wishlist", itemImgUrl: WishlistIcon, navPath: "/wishlist"},
     {itemName: "Purchase History", itemImgUrl: HistoryIcon, navPath: "/"},
     {itemName: "About DirtyCoins", itemImgUrl: AboutIcon, navPath: "/dirtycoins"},
     {itemName: "BoFi Technology", itemImgUrl: BofiIcon, navPath: "/bofi"},

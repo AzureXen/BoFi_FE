@@ -13,6 +13,8 @@ import ProductDisplay from "./pages/User/ProductDisplay/ProductDisplay.tsx";
 import {AuthProvider} from "./components/Authentication/AuthProvider.tsx";
 import ProductDetail from "./pages/User/ProductDetail/ProductDetail.tsx";
 import MeasuringOutcome from "./pages/User/MeasuringOutcome/MeasuringOutcome.tsx";
+import UserProfile from "./pages/User/UserProfile/UserProfile.tsx";
+import UserWishlist from "./pages/User/UserWishlist/UserWishlist.tsx";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
                 <Route path="/products/:typeParam?" element={<ProductDisplay/>} />
                 <Route path="/products/detail/:productId" element={<ProductDetail/>} />
                 <Route path="/measure" element={<MeasuringOutcome/>} />
+                <Route path="/profile" element={<UserProfile/>} />
+                <Route path="/wishlist" element={<UserWishlist/>} />
             </Routes>
         </BrowserRouter>
     </AuthProvider>

@@ -7,7 +7,32 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import Header from "../../../components/Header/Header.tsx";
 import Footer from "../../../components/Footer/Footer.tsx";
+// import Product, {type ProductResponse} from "../../../models/Product/Product.ts";
+// import type {ProductFetched} from "../../../models/Product/ProductFetched.ts";
+// import type {PagingInfo} from "../../../models/PagingInfo.ts";
 const API_GET_PRODUCT_BY_ID = "/products";
+
+// const API_ADD_TO_WISHLIST = "/users/wishlist"
+
+
+// const addToWishList = async (params: string): Promise<ProductResponse> => {
+//     try {
+//         const response = await axios.post<{ data: { items: ProductFetched[]; paging: PagingInfo } }>(
+//             `${API_BASE_URL}${API_ADD_TO_WISHLIST}?${params}`
+//         );
+//
+//         const items = response.data.data.items.map(Product.fromApi);
+//         const paging = response.data.data.paging;
+//
+//         return {
+//             items,
+//             paging
+//         };
+//     } catch (error) {
+//         console.error("Error while fetching products", error);
+//         throw error;
+//     }
+// };
 
 const fetchProductById = async (productId: string): Promise<ProductDetailModel> => {
     try {

@@ -1,9 +1,9 @@
 .upload-image {
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
     padding: 20px;
-    text-align: center; /* Center align text */
+    text-align: center;
     background-color: var(--main-color-2);
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
 }
 
 .upload-area-container{
@@ -37,16 +37,16 @@
 
 
 .upload-area p {
-    margin: 0; /* Remove default margin */
-    color: #666; /* Text color */
+    margin: 0;
+    color: #666;
 }
 
 .receive-sizes {
     padding: 10px 20px;
-    background-color: var(--main-color-1); /* Button color */
+    background-color: var(--main-color-1);
     color: white;
     border: none;
-    border-radius: 5px; /* Rounded button */
+    border-radius: 0;
     cursor: pointer;
     transition: background-color 0.3s;
 }

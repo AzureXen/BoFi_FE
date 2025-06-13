@@ -12,7 +12,9 @@
 }
 
 .dirty-coin-img {
-    width: 5em;
+    width: 4.5em;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 40px;
     height: auto;
 }
