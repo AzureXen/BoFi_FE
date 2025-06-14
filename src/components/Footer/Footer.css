@@ -6,6 +6,7 @@
 
 .footer{
     z-index: 20;
+    color: var(--main-color-2);
 }
 
 .about, .location {
