@@ -21,6 +21,7 @@ import Product, {type ProductResponse} from "../../../models/Product/Product.ts"
 import ProductType from "../../../models/ProductType/ProductType.ts";
 import type {ProductTypeFetched} from "../../../models/ProductType/ProductTypeFetched.ts";
 
+
 const fetchAllProducts = async (params: string): Promise<ProductResponse> => {
     try {
         const response = await axios.get<{ data: { items: ProductFetched[]; paging: PagingInfo } }>(

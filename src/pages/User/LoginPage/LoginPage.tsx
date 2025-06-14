@@ -17,6 +17,7 @@ import userIcon from "../../../assets/login-page/user-icon.png"
 
 import {useAuth} from "../../../components/Authentication/AuthProvider.tsx";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const LoginPage = () => {
     const { login, user } = useAuth();
@@ -37,9 +38,11 @@ const LoginPage = () => {
             const result = await login(username, password);
 
             if (result.success) {
+                toast.success("Login Success!");
                 console.log("Login Success!");
                 navigate("/");
             } else {
+                toast.success("Login Failed!");
                 console.error("Login failed.");
                 console.error(result.error);
             }

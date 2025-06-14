@@ -35,11 +35,11 @@ const fetchWishlist = async (userToken: string):Promise<WishlistResponse>  => {
 };
 
 const UserWishlist = ()=>{
-    const {user,loading, token} = useAuth();
     const navigate= useNavigate();
     const [wishlist, setWishlist] = useState<WishlistModel[]>([]);
     // const [maxPage, setMaxPage] = useState(1);
 
+    const {user,loading, token} = useAuth();
     useEffect(() => {
         if (!loading && user === null) {
             navigate("/login");

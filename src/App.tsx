@@ -15,29 +15,33 @@ import ProductDetail from "./pages/User/ProductDetail/ProductDetail.tsx";
 import MeasuringOutcome from "./pages/User/MeasuringOutcome/MeasuringOutcome.tsx";
 import UserProfile from "./pages/User/UserProfile/UserProfile.tsx";
 import UserWishlist from "./pages/User/UserWishlist/UserWishlist.tsx";
+import {ToastContainer} from "react-toastify";
 
 function App() {
   return (
-    <AuthProvider>
-        <BrowserRouter>
-            <ScrollToTop/>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/bofi" element={<BoFiTechnology/>} />
-                <Route path="/privacy" element={<PrivacyPolicy/>} />
-                <Route path="/warranty" element={<WarrantyReturn/>} />
-                <Route path="/upload" element={<UploadImage/>} />
-                <Route path="/dirtycoins" element={<AboutDirtyCoins/>} />
-                <Route path="/products/:typeParam?" element={<ProductDisplay/>} />
-                <Route path="/products/detail/:productId" element={<ProductDetail/>} />
-                <Route path="/measure" element={<MeasuringOutcome/>} />
-                <Route path="/profile" element={<UserProfile/>} />
-                <Route path="/wishlist" element={<UserWishlist/>} />
-            </Routes>
-        </BrowserRouter>
-    </AuthProvider>
+      <>
+        <AuthProvider>
+            <BrowserRouter>
+                <ScrollToTop/>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/bofi" element={<BoFiTechnology/>} />
+                    <Route path="/privacy" element={<PrivacyPolicy/>} />
+                    <Route path="/warranty" element={<WarrantyReturn/>} />
+                    <Route path="/upload" element={<UploadImage/>} />
+                    <Route path="/dirtycoins" element={<AboutDirtyCoins/>} />
+                    <Route path="/products/:typeParam?" element={<ProductDisplay/>} />
+                    <Route path="/products/detail/:productId" element={<ProductDetail/>} />
+                    <Route path="/measure" element={<MeasuringOutcome/>} />
+                    <Route path="/profile" element={<UserProfile/>} />
+                    <Route path="/wishlist" element={<UserWishlist/>} />
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
+          <ToastContainer position="top-right" autoClose={3000} theme="dark" />
+      </>
   )
 }
 

@@ -4,44 +4,54 @@ import {API_BASE_URL} from "../../../config.ts";
 import axios from "axios";
 import ProductDetailModel from "../../../models/ProductDetail/ProductDetailModel.ts";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Header from "../../../components/Header/Header.tsx";
 import Footer from "../../../components/Footer/Footer.tsx";
-// import Product, {type ProductResponse} from "../../../models/Product/Product.ts";
-// import type {ProductFetched} from "../../../models/Product/ProductFetched.ts";
-// import type {PagingInfo} from "../../../models/PagingInfo.ts";
+import {WishlistModel} from "../../../models/UserWishlist/WishlistModel.ts";
+
+import { toast } from 'react-toastify';
+import {useAuth} from "../../../components/Authentication/AuthProvider.tsx";
+
 const API_GET_PRODUCT_BY_ID = "/products";
 
-// const API_ADD_TO_WISHLIST = "/users/wishlist"
+const API_ADD_TO_WISHLIST = "/users/wishlist"
 
 
-// const addToWishList = async (params: string): Promise<ProductResponse> => {
-//     try {
-//         const response = await axios.post<{ data: { items: ProductFetched[]; paging: PagingInfo } }>(
-//             `${API_BASE_URL}${API_ADD_TO_WISHLIST}?${params}`
-//         );
-//
-//         const items = response.data.data.items.map(Product.fromApi);
-//         const paging = response.data.data.paging;
-//
-//         return {
-//             items,
-//             paging
-//         };
-//     } catch (error) {
-//         console.error("Error while fetching products", error);
-//         throw error;
-//     }
-// };
+const addToWishList = async (
+    userToken: string,
+    payload: { product_id: number; size_name: string; quantity: number }
+): Promise<WishlistModel> => {
+    try {
+        const response = await axios.post(
+            `${API_BASE_URL}${API_ADD_TO_WISHLIST}`,
+            payload,
+            {
+                headers: {
+                    Authorization: `Bearer ${userToken}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        if (response.data.error_code === 0) {
+            return WishlistModel.fromApi(response.data.data);
+        } else {
+            toast.error(response.data.message || "Failed to add to wishlist");
+            throw new Error(response.data.message || "Failed to add to wishlist");
+        }
+    } catch (error) {
+        console.error("Error while adding to wishlist", error);
+        throw error;
+    }
+};
+
+
 
 const fetchProductById = async (productId: string): Promise<ProductDetailModel> => {
     try {
         const response = await axios.get(
             `${API_BASE_URL}${API_GET_PRODUCT_BY_ID}/${productId}`
         );
-
-        console.log("fetch product by id response: ");
-        console.log(response);
 
         return new ProductDetailModel(response.data.data);
     } catch (error) {
@@ -52,6 +62,14 @@ const fetchProductById = async (productId: string): Promise<ProductDetailModel> 
 
 
 const ProductDetail =()=>{
+
+    const navigate = useNavigate();
+    const {user,loading, token} = useAuth();
+    useEffect(() => {
+        if (!loading && user === null) {
+            navigate("/login");
+        }
+    }, [user, loading, navigate]);
 
     const [productDetail, setProductDetail] = useState<ProductDetailModel>();
 
@@ -82,9 +100,37 @@ const ProductDetail =()=>{
         console.log(productDetail);
     },[productDetail])
 
-    const addToWishList = ()=>{
+    const handleWishlistButton = async () => {
+        try {
+            if (!token) {
+                toast.error("You need to log in first.");
+                navigate("/login");
+                return;
+            }
 
-    }
+            if (!productId) {
+                toast.warn("Product not found!");
+                return;
+            }
+
+            if (!selectedSize) {
+                toast.warn("Please pick a size.");
+                return;
+            }
+
+            const payload = {
+                product_id: parseInt(productId),
+                size_name: selectedSize,
+                quantity: 1
+            };
+
+            const response = await addToWishList(token, payload);
+            toast.success("Added to wishlist!");
+            console.log("Added to wishlist:", response);
+        } catch (error) {
+            console.error("Wishlist error:", error);
+        }
+    };
 
     return(
         <>
@@ -106,7 +152,7 @@ const ProductDetail =()=>{
                     <div className="add-to-wishlist-container">
                         <motion.button
                             className="add-to-wishlist"
-                            onClick={()=>addToWishList()}
+                            onClick={()=>handleWishlistButton()}
                             whileHover={{
                                 scale: 1.03,
                                 backgroundColor: "#cfcfcf",

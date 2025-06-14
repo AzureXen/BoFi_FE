@@ -94,7 +94,7 @@ const UserProfile = () =>{
     const navigate = useNavigate();
     const { user, loading, token, logout } = useAuth();
 
-    const [detailType, setDetailType] = useState("account");
+    const [detailType, setDetailType] = useState("logout");
 
     useEffect(()=>{
         if(!loading && token != null){
