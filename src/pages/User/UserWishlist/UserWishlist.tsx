@@ -15,6 +15,7 @@ import axios from "axios";
 const GET_WISHLIST = "/users/wishlist"
 
 import {motion} from "framer-motion";
+import {toast} from "react-toastify";
 
 const fetchWishlist = async (userToken: string):Promise<WishlistResponse>  => {
     const response = await axios.get<{ data: { items: WishlistModelFetched[]; paging: PagingInfo } }>(
@@ -42,6 +43,7 @@ const UserWishlist = ()=>{
     const {user,loading, token} = useAuth();
     useEffect(() => {
         if (!loading && user === null) {
+            toast.warn("User must login in to use this function!");
             navigate("/login");
         }
     }, [user, loading, navigate]);
@@ -96,7 +98,7 @@ const UserWishlist = ()=>{
                             </>
                         )
                         :
-                        (<h1>You wishlist is empty!</h1>)}
+                        (<h2>Your wishlist is empty!</h2>)}
                 </div>
                 <div style={{display:"flex", justifyContent: "center", alignItems:"center", flexDirection:"column"}}>
                     <motion.button

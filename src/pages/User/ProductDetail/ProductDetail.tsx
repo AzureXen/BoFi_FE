@@ -64,12 +64,12 @@ const fetchProductById = async (productId: string): Promise<ProductDetailModel> 
 const ProductDetail =()=>{
 
     const navigate = useNavigate();
-    const {user,loading, token} = useAuth();
-    useEffect(() => {
-        if (!loading && user === null) {
-            navigate("/login");
-        }
-    }, [user, loading, navigate]);
+    const {token} = useAuth();
+    // useEffect(() => {
+    //     if (!loading && user === null) {
+    //         navigate("/login");
+    //     }
+    // }, [user, loading, navigate]);
 
     const [productDetail, setProductDetail] = useState<ProductDetailModel>();
 
@@ -102,8 +102,9 @@ const ProductDetail =()=>{
 
     const handleWishlistButton = async () => {
         try {
+
             if (!token) {
-                toast.error("You need to log in first.");
+                toast.warn("You need to log in to add this item to wishlist.");
                 navigate("/login");
                 return;
             }

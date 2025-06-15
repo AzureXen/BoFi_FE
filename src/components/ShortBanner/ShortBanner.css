@@ -1,4 +1,5 @@
 .short-banner {
+    color: var(--main-color-2);
     margin: 45px 0;
     height:200px;
     background-position: center;
@@ -9,6 +10,7 @@
 }
 
 .banner-title{
+    color: var(--main-color-2);
     background-color: black;
     padding:7px 35px;
 }

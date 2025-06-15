@@ -42,7 +42,7 @@ const LoginPage = () => {
                 console.log("Login Success!");
                 navigate("/");
             } else {
-                toast.success("Login Failed!");
+                toast.error("Login Failed!");
                 console.error("Login failed.");
                 console.error(result.error);
             }
