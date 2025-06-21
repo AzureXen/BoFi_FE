@@ -282,7 +282,7 @@ const UserProfileDetail:React.FC<IUserProfileDetail> = ({fullName, email, phone,
                                 </div>
                             ))}
 
-                            <div style={{margin:"20px 10px"}}>
+                            <div style={{margin: "20px 10px"}}>
                                 <motion.button
                                     className="sync-button"
                                     onClick={handleSyncSize}
@@ -293,12 +293,49 @@ const UserProfileDetail:React.FC<IUserProfileDetail> = ({fullName, email, phone,
                                 >
                                     {isLoading ? "Syncing..." : "Sync Wishlist"}
                                 </motion.button>
+                                <motion.button
+                                    className="sync-button"
+                                    onClick={()=>{
+                                        navigate("/upload");
+                                    }}
+                                    whileHover={{scale: isLoading ? 1 : 1.03}}
+                                    whileTap={{scale: isLoading ? 1 : 0.98}}
+                                    transition={{type: "spring", stiffness: 300}}
+                                >
+                                    {isLoading ? "Syncing..." : "New Measurements"}
+                                </motion.button>
+
                             </div>
 
                         </div>
 
                     ) : (
-                        <p>Measurement data not available.</p>
+                        <>
+                            <h2>Measurement data not available.</h2>
+                            <motion.button
+                                style={{
+                                    margin: "20px",
+                                    padding: "10px",
+                                    borderRadius: "0",
+                                }}
+                                whileHover={{
+                                    scale: 1.05,
+                                }}
+                                whileTap={{
+                                    scale: 0.95,
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20,
+                                }}
+                                onClick={()=>{
+                                    navigate("/upload")
+                                }}
+                            >
+                                Measure now!
+                            </motion.button>
+                        </>
                     )}
                 </>
             )}

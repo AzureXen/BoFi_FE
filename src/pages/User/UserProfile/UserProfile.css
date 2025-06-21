@@ -165,3 +165,7 @@
     background-color: var(--main-color-1);
     border-radius: 2px;
 }
+
+.sync-button{
+    margin: 10px;
+}
