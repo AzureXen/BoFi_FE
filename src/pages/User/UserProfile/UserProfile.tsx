@@ -370,7 +370,7 @@ const UserProfile = () => {
             }
             getUserProfile();
         }
-    },[user])
+    },[token, loading])
 
     useEffect(() => {
         if (!loading && user === null) {
