@@ -13,6 +13,8 @@ import axios from "axios";
 import {API_BASE_URL} from "../../../config.ts";
 const API_SYNC_WISHLIST = "/measurements/sync-wishlist"
 
+const API_SAVE_MEASUREMENTS = "/measurements/save-measurements"
+
 
 interface LocationState {
     measurementData: MeasurementData;
@@ -23,6 +25,8 @@ const MeasuringOutcome = () =>{
     const {token} = useAuth();
 
     const [isLoading, setIsLoading] = useState(false);
+
+    const [isSaving, setIsSaving] = useState(false);
 
     const [measureData, setMeasureData] = useState<MeasurementData | null>(null);
     const location = useLocation();
@@ -94,6 +98,73 @@ const MeasuringOutcome = () =>{
         }
     };
 
+    const handleSaveMeasures = async () =>{
+        if (!measureData) {
+            toast.error("No measurement data available to sync.");
+            return;
+        }
+
+        if (!token) {
+            toast.error("Authentication token not found. Please login again.");
+            return;
+        }
+
+        setIsSaving(true);
+
+        try {
+            const requestBody = {
+                height: measureData["height"],
+                shoulder_to_crotch_height: measureData["shoulder to crotch height"],
+                arm_right_length: measureData["arm right length"],
+                inside_leg_height: measureData["inside leg height"],
+                shoulder_breadth: measureData["shoulder breadth"],
+                head_circumference: measureData["head circumference"],
+                neck_circumference: measureData["neck circumference"],
+                chest_circumference: measureData["chest circumference"],
+                waist_circumference: measureData["waist circumference"],
+                hip_circumference: measureData["hip circumference"],
+                wrist_right_circumference: measureData["wrist right circumference"],
+                bicep_right_circumference: measureData["bicep right circumference"],
+                forearm_right_circumference: measureData["forearm right circumference"],
+                thigh_left_circumference: measureData["thigh left circumference"],
+                calf_left_circumference: measureData["calf left circumference"],
+                ankle_left_circumference: measureData["ankle left circumference"]
+            };
+
+            const response = await axios.post(
+                `${API_BASE_URL}${API_SAVE_MEASUREMENTS}`,
+                requestBody,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+
+            if (response.status === 200 || response.status === 201) {
+                toast.success("Measurements saved successfully!");
+            }
+
+        } catch (error) {
+            console.error('Sync error:', error);
+
+            if (axios.isAxiosError(error)) {
+                if (error.response?.status === 401) {
+                    toast.error("Authentication failed. Please login again.");
+                } else if (error.response?.status === 400) {
+                    toast.error("Invalid measurement data. Please try again.");
+                } else {
+                    toast.error(`Save measurements failed: ${error.response?.data?.message || error.message}`);
+                }
+            } else {
+                toast.error("An unexpected error occurred. Please try again.");
+            }
+        } finally {
+            setIsSaving(false);
+        }
+    }
+
     return(
         <>
             <Header/>
@@ -141,6 +212,17 @@ const MeasuringOutcome = () =>{
                             transition={{type: "spring", stiffness: 300}}
                         >
                             {isLoading ? "Syncing..." : "Let's sync"}
+                        </motion.button>
+
+                        <motion.button
+                            className="sync-button"
+                            onClick={handleSaveMeasures}
+                            disabled={isSaving}
+                            whileHover={{scale: isSaving ? 1 : 1.03}}
+                            whileTap={{scale: isSaving ? 1 : 0.98}}
+                            transition={{type: "spring", stiffness: 300}}
+                        >
+                            {isLoading ? "Saving..." : "Save Measurements"}
                         </motion.button>
                     </div>
                 </div>

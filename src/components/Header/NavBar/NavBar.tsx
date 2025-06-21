@@ -150,7 +150,7 @@ const NavBar:React.FC<INavBar> = ({showHeader}) =>{
                         showHeader={showHeader}
                         itemName={"My Account"}
                         itemImgUrl={UserLoggedInIcon}
-                        navPath={"/"}
+                        navPath={"/profile"}
                     />
                 )}
             </div>

@@ -19,6 +19,7 @@
 .user-info-main .user-avatar-container{
     height: 100%;
     width: 240px;
+    margin-right: 30px;
     /*background-color: #646cff;*/
     display:flex;
     justify-content: center;
@@ -28,7 +29,7 @@
 .user-info-main .avatar-frame{
     height: 200px;
     width: 200px;
-    background-color: #D9D9D9;
+    /*background-color: #D9D9D9;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +45,7 @@
     display:flex;
     align-items: center;
     font-size: 32px;
-    margin-left: 60px;
+    margin-left: 30px;
 }
 
 .user-info-detail{
@@ -77,6 +78,90 @@
     align-items: center;
 }
 
+.side-bar-item.active-side-bar-item{
+    background-color:var(--main-color-1);
+    color: var(--main-color-2);
+}
+
 .side-bar-item:hover{
     cursor: pointer;
+}
+
+.user-field-list{
+    margin-top: 25px;
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    padding-right: 12px;
+}
+
+.user-field-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.user-field-list::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+
+.user-field-container{
+    box-sizing: border-box;
+    width:50%;
+    padding: 10px 80px 10px 0;
+}
+.user-field-label{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.3rem;
+    margin: 10px 0;
+}
+.user-field-value{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    background-color: #D9D9D9;
+    height: 3.5rem;
+    font-size: 1.2rem;
+}
+
+.tab-bar {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.tab-button {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #666;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.tab-button:hover {
+    color: #222;
+}
+
+.tab-button:focus {
+    outline: none;
+}
+
+.tab-button .tab-underline {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--main-color-1);
+    border-radius: 2px;
 }

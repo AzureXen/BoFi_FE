@@ -16,6 +16,8 @@ const API_GET_PRODUCT_BY_ID = "/products";
 
 const API_ADD_TO_WISHLIST = "/users/wishlist"
 
+const API_GET_RECOMMENDED_SIZE = "/measurements/pre-select-size"
+
 
 const addToWishList = async (
     userToken: string,
@@ -60,6 +62,24 @@ const fetchProductById = async (productId: string): Promise<ProductDetailModel> 
     }
 };
 
+const fetchRecommendSize = async (params: string, token: string)=>{
+    try{
+        const response = await axios.post(
+            `${API_BASE_URL}${API_GET_RECOMMENDED_SIZE}?${params}`,
+            {}, // empty POST body
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        return response.data.data;
+    }catch(error){
+        console.error("Error while fetching recommendSize", error);
+        throw error;
+    }
+}
 
 const ProductDetail =()=>{
 
@@ -73,9 +93,34 @@ const ProductDetail =()=>{
 
     const [productDetail, setProductDetail] = useState<ProductDetailModel>();
 
+
+    const [recommendedSize, setRecommendedSize] = useState("");
+
     const { productId } = useParams();
 
     const [selectedSize, setSelectedSize] = useState("");
+
+    // get recommended size
+    useEffect(()=>{
+        if(productDetail!=null && productDetail.size.length>0 && token!=null){
+            const params = new URLSearchParams();
+            params.append("product_id", productDetail?.product.productId.toString());
+            try{
+                const fetchRecommendedSize = async () =>{
+                    const response = await fetchRecommendSize(params.toString(),token);
+                    setRecommendedSize(response.size_name);
+                }
+                fetchRecommendedSize();
+            }catch(error){
+                console.error("Error while fetching recommended size", error);
+                throw error;
+            }
+        }
+    },[productDetail])
+
+    useEffect(()=>{
+        setSelectedSize(recommendedSize);
+    },[recommendedSize])
 
     useEffect(()=>{
         const fetchProduct = async (productId: string)=>{
@@ -133,6 +178,8 @@ const ProductDetail =()=>{
         }
     };
 
+
+
     return(
         <>
             <Header/>
@@ -175,38 +222,94 @@ const ProductDetail =()=>{
 
                     </div>
                     <div className="size-selection">
-                        {productDetail?.size.map((size) => (
-                            <motion.button
-                                key={size}
-                                className={`size-button ${selectedSize === size ? "selected" : ""}`}
-                                onClick={() => setSelectedSize(size)}
-                                whileHover={{
-                                    scale: 1.05,
-                                    backgroundColor: "#333",
-                                    color: "#fff",
-                                }}
-                                whileTap={{
-                                    scale: 0.95,
-                                    rotate: -1,
-                                    boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.3)",
-                                }}
-                                animate={selectedSize === size ? {
-                                    scale: 1.1,
-                                    backgroundColor: "#222",
-                                    color: "#fff"
-                                } : {}}
-                                transition={{
-                                    scale: {type: "spring", stiffness: 400, damping: 20},
-                                    backgroundColor: {duration: 0.2},
-                                    color: {duration: 0.2},
-                                    rotate: {duration: 0.1},
-                                    boxShadow: {duration: 0.1},
-                                }}
-                            >
-                                Size {size}
-                            </motion.button>
+                        {productDetail?.size.map((size) => {
+                            const hoverStyle = {
+                                scale: 1.06,
+                                ...(recommendedSize === size
+                                    ? {
+                                        backgroundColor: "#ea5431",
+                                        color: "#fff",
+                                    }
+                                    : {
+                                        backgroundColor: "#333",
+                                        color: "#fff",
+                                    }),
+                            };
+                            return(
 
-                        ))}
+                                <div className="size-button-wrapper" key={size}>
+                                    {recommendedSize === size && (
+                                        <motion.div
+                                            className="recommended-label"
+                                            initial={{opacity: 0, y: -10, scale: 0.9}}
+                                            animate={{
+                                                opacity: 1,
+                                                y: -4,
+                                                scale: [1, 1.05, 1],
+                                                color: "#ea5431",
+                                            }}
+                                            transition={{
+                                                duration: 0.6,
+                                                ease: "easeOut",
+                                                scale: {
+                                                    duration: 1,
+                                                    repeat: Infinity,
+                                                    repeatType: "reverse",
+                                                },
+                                            }}
+                                        >
+                                            Recommended Size
+                                        </motion.div>
+
+                                    )}
+
+                                    <motion.button
+                                        className={`
+                                      size-button
+                                      ${selectedSize === size ? "selected" : ""}
+                                      ${recommendedSize === size ? "recommended-size" : ""}
+                                    `}
+                                        onClick={() => setSelectedSize(size)}
+                                        whileHover={hoverStyle}
+                                        whileTap={{
+                                            scale: 0.95,
+                                            rotate: -1,
+                                            boxShadow: "0 0 10px rgba(0, 0, 0, 0.25)",
+                                        }}
+                                        animate={{
+                                            ...(selectedSize === size && {
+                                                scale: 1.1,
+                                                backgroundColor: "#1e1e1e",
+                                                color: "#fff",
+                                                border: "2px solid #1e1e1e",
+                                            }),
+                                            ...(recommendedSize === size && {
+                                                border: "2px solid #ea5431",
+                                                color: "#ea5431",
+                                                fontWeight: 600,
+                                            }),
+                                            ...(selectedSize === size && recommendedSize === size && {
+                                                backgroundColor: "#ea5431",
+                                                color: "#fff",
+                                                border: "2px solid #ea5431",
+                                            }),
+                                        }}
+                                        transition={{
+                                            scale: {type: "spring", stiffness: 400, damping: 22},
+                                            backgroundColor: {duration: 0.2},
+                                            color: {duration: 0.2},
+                                            rotate: {duration: 0.1},
+                                            boxShadow: {duration: 0.1},
+                                            border: {duration: 0.2},
+                                        }}
+                                    >
+                                        Size {size}
+                                    </motion.button>
+                                </div>
+
+
+                            )
+                        })}
                     </div>
                 </div>
             </div>

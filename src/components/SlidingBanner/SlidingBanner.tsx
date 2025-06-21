@@ -27,7 +27,6 @@ const SlidingBanner = () => {
     const DRAG_BUFFER = 5;
     const dragX = useMotionValue(0);
 
-
     useEffect(() => {
         const intervalRef = setInterval(() => {
             const x = dragX.get();
@@ -77,6 +76,25 @@ const SlidingBanner = () => {
                         </div>
                     ))}
                 </motion.div>
+                <div className="banner-pagination-container">
+                    <div className="pagination-background">
+                        {imgs.map((_, idx) => (
+                            <motion.div
+                                key={idx}
+                                whileTap={{scale:0.98}}
+                                whileHover={{
+                                    scale:1.15,
+                                }}
+
+                                className={`pagination-button ${(imgIndex === idx) ? "active" : ""}`}
+                                 onClick={()=>{
+                                     setImgIndex(idx);
+                                 }}
+                            >
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </>
     );
