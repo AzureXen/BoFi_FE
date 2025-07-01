@@ -82,7 +82,7 @@ const navItems = [
     // {itemName: "Products", itemImgUrl: ProductsIcon, navPath: "/"},
     {itemName: "Collab's", itemImgUrl: CollabsIcon, navPath: "/"},
     {itemName: "Wishlist", itemImgUrl: WishlistIcon, navPath: "/wishlist"},
-    {itemName: "Purchase History", itemImgUrl: HistoryIcon, navPath: "/"},
+    {itemName: "Purchase History", itemImgUrl: HistoryIcon, navPath: "/history"},
     {itemName: "About DirtyCoins", itemImgUrl: AboutIcon, navPath: "/dirtycoins"},
     {itemName: "BoFi Technology", itemImgUrl: BofiIcon, navPath: "/bofi"},
     {itemName: "Contact", itemImgUrl: ContactIcon, navPath: "/contact   "},

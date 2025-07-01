@@ -16,6 +16,8 @@ import MeasuringOutcome from "./pages/User/MeasuringOutcome/MeasuringOutcome.tsx
 import UserProfile from "./pages/User/UserProfile/UserProfile.tsx";
 import UserWishlist from "./pages/User/UserWishlist/UserWishlist.tsx";
 import {ToastContainer} from "react-toastify";
+import PurchaseHistory from "./pages/User/PurchaseHistory/PurchaseHistory.tsx";
+import ProductManager from "./pages/Admin/ProductManagement/ProductManager.tsx";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
                     <Route path="/measure" element={<MeasuringOutcome/>} />
                     <Route path="/profile" element={<UserProfile/>} />
                     <Route path="/wishlist" element={<UserWishlist/>} />
+                    <Route path="/history" element={<PurchaseHistory/>} />
+                    <Route path="/manage" element={<ProductManager/>} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

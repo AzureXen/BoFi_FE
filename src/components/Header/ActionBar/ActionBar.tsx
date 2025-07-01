@@ -52,6 +52,14 @@ const ActionBar = () =>{
                             transition: {type: "spring", stiffness: 300}
                         }}
                     />
+
+                    {/*<div className="staff-navigator"*/}
+                    {/*onClick={()=>{*/}
+                    {/*    navigate("/manage");*/}
+                    {/*}}*/}
+                    {/*>*/}
+                    {/*    STAFF ONLY*/}
+                    {/*</div>*/}
                 </div>
 
                 <div className="right-action-bar"

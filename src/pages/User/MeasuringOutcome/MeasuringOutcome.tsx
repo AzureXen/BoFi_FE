@@ -100,7 +100,7 @@ const MeasuringOutcome = () =>{
 
     const handleSaveMeasures = async () =>{
         if (!measureData) {
-            toast.error("No measurement data available to sync.");
+            toast.error("No measurement data available to save.");
             return;
         }
 

@@ -1,0 +1,14 @@
+.product-recommend{
+
+}
+.product-recommend-label{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    margin: 40px 0;
+}
+
+.product-recommend-label h2{
+    font-size: 2.4rem;
+}

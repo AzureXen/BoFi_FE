@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     margin: 100px 0;
-    height: auto;
+    height: 60vh;
 }
 .product-detail .product-images-container,.product-info{
     width:40%;

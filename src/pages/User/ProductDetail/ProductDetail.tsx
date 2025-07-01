@@ -11,6 +11,7 @@ import {WishlistModel} from "../../../models/UserWishlist/WishlistModel.ts";
 
 import { toast } from 'react-toastify';
 import {useAuth} from "../../../components/Authentication/AuthProvider.tsx";
+import ProductRecommend from "../../../components/ProductRecommend/ProductRecommend.tsx";
 
 const API_GET_PRODUCT_BY_ID = "/products";
 
@@ -313,6 +314,7 @@ const ProductDetail =()=>{
                     </div>
                 </div>
             </div>
+            <ProductRecommend/>
             <Footer/>
         </>
     )
