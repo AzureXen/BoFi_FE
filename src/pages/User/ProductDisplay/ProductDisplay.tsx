@@ -11,8 +11,9 @@ const GET_ALL_PRODUCT_API = "/products";
 const GET_ALL_TYPE_API = "/categories";
 
 import AllProductBanner from "../../../assets/product-display/all_products.png"
+import CollabProductBanner from "../../../assets/product-display/collab_products.png"
 import ShortBanner from "../../../components/ShortBanner/ShortBanner.tsx";
-import {useParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 
 import type {PagingInfo} from "../../../models/PagingInfo.ts";
 import type {ProductFetched} from "../../../models/Product/ProductFetched.ts";
@@ -63,8 +64,6 @@ const ProductDisplay = () =>{
 
     const [selectedType, setSelectedType] = useState<ProductType| null>(null);
 
-    const { typeParam } = useParams();
-
     // This is only used to show at the search bar!
     const [searchSize, setSearchSize] = useState("");
 
@@ -72,6 +71,11 @@ const ProductDisplay = () =>{
     const [size, setSize] = useState("");
 
     const [sortBy, setSortBy] = useState("");
+
+    const [searchParams] = useSearchParams();
+    const type = searchParams.get("type");
+    const isCollabParam = searchParams.get("isCollab");
+    const isCollab = isCollabParam === "true";
 
     // FETCH PRODUCT TYPES
     useEffect(()=>{
@@ -90,14 +94,14 @@ const ProductDisplay = () =>{
     // SET SELECTED PRODUCT TYPE IF PARAM CHANGES, OR PRODUCT TYPES (ALL) CHANGED
     useEffect(()=>{
         const foundType = productTypes.find(
-            t => t.type_name.toLowerCase().trim() === typeParam?.toLowerCase().trim()
+            t => t.type_name.toLowerCase().trim() === type?.toLowerCase().trim()
         );
         if (foundType) {
             setSelectedType(foundType);
         }else {
             setSelectedType(null); // Reset if no matching type is found
         }
-    },[productTypes, typeParam])
+    },[productTypes, type])
 
 
     // FETCH PRODUCTS
@@ -169,8 +173,19 @@ const ProductDisplay = () =>{
     return(
         <>
             <div className="product-display">
-                <Header/>
-                <ShortBanner imgSrc={AllProductBanner} title={(selectedType!=null)? `${selectedType.type_name}` : "Shop"}/>
+                ${isCollab ?
+                (<>
+                    <Header/>
+                    <ShortBanner imgSrc={CollabProductBanner} title={(selectedType!=null)? `${selectedType.type_name}` : "Collab"}/>
+                </>
+                )
+                :
+                (<>
+                    <Header/>
+                    <ShortBanner imgSrc={AllProductBanner} title={(selectedType!=null)? `${selectedType.type_name}` : "Shop"}/>
+                </>
+                )}
+
                 <div className="product-filter">
                     <div className={"size-search product-filter-item"}>
                         <input

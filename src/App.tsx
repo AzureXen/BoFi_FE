@@ -34,7 +34,7 @@ function App() {
                     <Route path="/warranty" element={<WarrantyReturn/>} />
                     <Route path="/upload" element={<UploadImage/>} />
                     <Route path="/dirtycoins" element={<AboutDirtyCoins/>} />
-                    <Route path="/products/:typeParam?" element={<ProductDisplay/>} />
+                    <Route path="/products" element={<ProductDisplay/>} />
                     <Route path="/products/detail/:productId" element={<ProductDetail/>} />
                     <Route path="/measure" element={<MeasuringOutcome/>} />
                     <Route path="/profile" element={<UserProfile/>} />

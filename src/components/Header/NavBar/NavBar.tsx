@@ -80,7 +80,6 @@ const fetchAllTypes = async (): Promise<ProductType[]> => {
 
 const navItems = [
     // {itemName: "Products", itemImgUrl: ProductsIcon, navPath: "/"},
-    {itemName: "Collab's", itemImgUrl: CollabsIcon, navPath: "/"},
     {itemName: "Wishlist", itemImgUrl: WishlistIcon, navPath: "/wishlist"},
     {itemName: "Purchase History", itemImgUrl: HistoryIcon, navPath: "/history"},
     {itemName: "About DirtyCoins", itemImgUrl: AboutIcon, navPath: "/dirtycoins"},
@@ -124,7 +123,28 @@ const NavBar:React.FC<INavBar> = ({showHeader}) =>{
                                 className="sub-nav-item"
                                 onClick={(e) => {
                                     e.stopPropagation(); // Prevent parent onClick
-                                    navigate(`/products/${product.type_name}`);
+                                    navigate(`/products?type=${product.type_name}`);
+                                }}
+                            >
+                                <motion.p variants={{hovering: {scale: 1.1}}}>{product.type_name}</motion.p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </NavBarItem>
+
+                {/*COLLAB PRODUCTS*/}
+                <NavBarItem showHeader={showHeader}
+                            itemName={"Collab's"} itemImgUrl={CollabsIcon} navPath={"/products?isCollab=true"}>
+                    <div className="sub-nav">
+                        {productTypes.map((product) => (
+                            <motion.div
+                                key={product.type_id}
+                                variants={{hovering: {}}}
+                                whileHover="hovering"
+                                className="sub-nav-item"
+                                onClick={(e) => {
+                                    e.stopPropagation(); // Prevent parent onClick
+                                    navigate(`/products?type=${product.type_name}&isCollab=true`);
                                 }}
                             >
                                 <motion.p variants={{hovering: {scale: 1.1}}}>{product.type_name}</motion.p>

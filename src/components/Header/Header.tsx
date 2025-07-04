@@ -2,7 +2,9 @@ import ActionBar from "./ActionBar/ActionBar.tsx";
 import NavBar from "./NavBar/NavBar.tsx";
 import "./Header.css"
 import {useEffect, useRef, useState} from "react";
-const Header = () =>{
+
+
+const Header= () =>{
 
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
