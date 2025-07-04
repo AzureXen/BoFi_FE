@@ -17,6 +17,7 @@
     color: var(--main-color-2);
     text-align: center;
     transition: background-color 0.1s ease-in-out;
+    height:100%;
 }
 .navbar-item:hover{
     cursor: pointer;
