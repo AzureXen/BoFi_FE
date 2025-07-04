@@ -25,7 +25,6 @@ import type {ProductTypeFetched} from "../../../models/ProductType/ProductTypeFe
 
 const fetchAllProducts = async (params: string): Promise<ProductResponse> => {
     try {
-        console.log(`Fetching products at ${API_BASE_URL}${GET_ALL_PRODUCT_API}?${params}`)
         const response = await axios.get<{ data: { items: ProductFetched[]; paging: PagingInfo } }>(
             `${API_BASE_URL}${GET_ALL_PRODUCT_API}?${params}`
         );
