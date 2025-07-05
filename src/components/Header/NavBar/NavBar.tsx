@@ -66,6 +66,7 @@ const NavBarItem:React.FC<INavBarItem> = ({showHeader, itemName, itemImgUrl, nav
 const GET_ALL_TYPE_API = "/categories";
 const fetchAllTypes = async (): Promise<ProductType[]> => {
     try {
+        console.log(`Fetching Categories at: ${API_BASE_URL}${GET_ALL_TYPE_API}`)
         const response = await axios.get<{ data: ProductTypeFetched[] }>(
             `${API_BASE_URL}${GET_ALL_TYPE_API}`
         );
