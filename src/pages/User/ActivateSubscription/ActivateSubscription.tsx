@@ -24,13 +24,15 @@ const ActivateSubscription = () => {
                             ))}
                         </div>
                         <div className="activate-subscription-button">
-                            <motion.button
-                                whileHover={{scale: 1.02}}
-                                whileTap={{scale: 0.98}}
-                                transition={{type: "spring", stiffness: 300}}
-                            >
-                                Activate
-                            </motion.button>
+                            <a href={"https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"}>
+                                <motion.button
+                                    whileHover={{scale: 1.02}}
+                                    whileTap={{scale: 0.98}}
+                                    transition={{type: "spring", stiffness: 300}}
+                                >
+                                    Activate
+                                </motion.button>
+                            </a>
 
                         </div>
                     </div>
