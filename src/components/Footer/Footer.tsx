@@ -1,32 +1,56 @@
 import Bofi from "../../assets/footer/bofi.png"
-import DirtyCoins from "../../assets/footer/dirty_coins.png"
+import StraDe from "../../assets/strade-icons/strade-1.png"
 import Facebook from "../../assets/footer/facebook.png"
 import Instagram from "../../assets/footer/instagram_icon.png"
 import Youtube from "../../assets/footer/youtube.png"
 import {motion} from "framer-motion";
 
 import "./Footer.css"
+import {useNavigate} from "react-router-dom";
 const Footer = () =>{
+    const navigate = useNavigate();
     return (
         <div className="footer">
             <div className="footer-content">
                 <div className="about">
-                    <div className="about-dirtycoins">
-                        <img className={"dirty-coins-banner"} src={DirtyCoins} alt={"dirty-coins-banner"}/>
+                    <div className="about-strade">
+                        <motion.img
+                            className="strade-banner"
+                            src={StraDe}
+                            alt="strade-banner"
+                            onClick={()=>{
+                                navigate("/subscription")
+                            }}
+
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+
+                            transition={{duration: 0.4, ease: "easeOut"}}
+                            whileHover={{
+                                scale: 1.02,
+                                filter: "drop-shadow(0 0 70px rgba(255, 255, 255, 0.4))",
+                                transition: { duration: 0.2 },
+                            }}
+                            style={{
+                                borderRadius: "12px",
+                                cursor: "pointer",
+                            }}
+
+                        />
 
 
+                        <div className="strade-social-media">
+                            <motion.a whileHover={{scale: 1.1}}
 
-                        <div className="dirtycoins-social-media">
-                            <motion.a whileHover={{scale:1.1}}
-
-                                href="https://www.instagram.com/dirtycoins.vn/" target="_blank"
-                               rel="noopener noreferrer">
+                                      href="https://www.instagram.com/strade.vn/" target="_blank"
+                                      rel="noopener noreferrer">
                                 <div className="icon-holder">
                                     <img className={"instagram-icon"} src={Instagram} alt={"instagram-icon"}/>
                                 </div>
                             </motion.a>
 
-                            <motion.a whileHover={{scale:1.1}} href="https://www.facebook.com/DirtyCoins.VN/" target="_blank"
+                            <motion.a whileHover={{scale:1.1}} href="https://www.facebook.com/strade.VN/" target="_blank"
                                rel="noopener noreferrer">
                                 <div className="icon-holder">
                                     <img className={"facebook-icon"} src={Facebook} alt={"facebook-icon"}/>
@@ -60,12 +84,12 @@ const Footer = () =>{
                 <div className="contact">
                     <div className="hotline">
                         <h5>PURCHASE/SUPPORT:</h5>
-                        <h4>0933 800 190</h4>
+                        <h4>085 8906 513</h4>
                     </div>
 
                     <div className="email">
                         <h5>EMAIL: </h5>
-                        <p>csteamdcs@gmail.com</p>
+                        <p>stradetechnology@gmail.com</p>
                     </div>
 
                     <div className="extra-links">
@@ -88,9 +112,8 @@ const Footer = () =>{
                     <h5 className={"title"}>SHOP SYSTEM</h5>
 
                     <p className={"branch-name"}>Ho Chi Minh Branch:</p>
-                    <p className={"store"}>Binh Tan District - Floor 1 TTTM Aeon Mall Bình Tân, No.1 Street 17A, Ward
-                        Binh
-                        Tri Dong B.</p>
+                    <p className={"store"}>Binh Tan District - Floor 1 TTTM Aeon Mall Bình Tân, No.1 Street <br/> 17A, Ward
+                        Binh Tri Dong B.</p>
                     <p className={"store"}>Thu Duc City - District 9 - Floor 2 TTTM Vincom Mega Mall.</p>
 
                     <p className={"branch-name"}>Vinhomes Grand Park:</p>

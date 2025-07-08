@@ -1,5 +1,6 @@
 .navbar{
-    height: 70px;
+    height: auto;
+    padding: 3px 0;
     position: relative;
     display: flex;
     align-items: center;
@@ -9,7 +10,12 @@
 }
 .navbar-item{
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
     width: 96px;
     padding: 0.6em 0;
     margin: 0 2.5em;
@@ -24,8 +30,8 @@
     background-color: var(--main-color-1);
 }
 .navbar-item-img{
-    width: 30px;
-    height: 26px;
+    width: 35px;
+    height: 31px;
 }
 .navbar-item-name{
     margin: 0;
@@ -35,6 +41,7 @@
 .sub-nav{
     position: absolute;
     left: 2px;
+    top: 100%;
     width:100%;
 }
 

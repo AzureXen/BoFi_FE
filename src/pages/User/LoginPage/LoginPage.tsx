@@ -124,16 +124,28 @@ const LoginPage = () => {
                     <h2>or New Membership with</h2>
                     <div className="register-icon-group">
                         <motion.div
+                            onClick={()=>{
+                                navigate("/register")
+                            }}
                             whileHover={{scale:1.05, backgroundColor:"#F9A825"}}
                             className="register-icon-holder" id={"gmail"}>
-                            <img src={regEmailSVG} alt="email-icon" className="register-icon"/>
+                            <img src={regEmailSVG}
+                                 alt="email-icon"
+                                 className="register-icon"
+                            />
                         </motion.div>
                         <motion.div
+                            onClick={()=>{
+                                navigate("/register")
+                            }}
                             whileHover={{scale:1.05, backgroundColor:"#1877F2"}}
                             className="register-icon-holder" id={"facebook"}>
                             <img src={regFacebookSVG} alt="facebook-icon" className="register-icon"/>
                         </motion.div>
                         <motion.div
+                            onClick={()=>{
+                                navigate("/register")
+                            }}
                             whileHover={{scale:1.05, backgroundColor:"#08a0e9", color:"white"}}
                             className="register-icon-holder" id={"twitter"}>
                             <motion.img src={regTwitterSVG} alt="twitter-icon" className="register-icon"/>

@@ -4,6 +4,7 @@ import axios from "axios";
 import type { User, AuthContextType } from "../../models/auth.ts";
 import { API_BASE_URL } from "../../config.ts";
 
+const REGISTER_API_URL = "/auth/signup"
 const LOGIN_API_URL = "/auth/login";
 const USERINFO_API_URL = "/users/info";
 
@@ -56,7 +57,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         loadUser();
     }, [token, logout]);
 
-    // Login function with better error handling
     const login = async (username: string, password: string): Promise<{ success: boolean; error?: string }> => {
         setLoading(true);
 
@@ -100,7 +100,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
     };
 
-    // Optional: Add a refresh token function
     const refreshUser = useCallback(async (): Promise<boolean> => {
         if (!token) return false;
 
@@ -119,11 +118,63 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
     }, [token, logout]);
 
+    const register = async (
+        email: string,
+        username: string,
+        password: string,
+        fullName: string,
+        role: string = "customer"
+    ): Promise<{ success: boolean; error?: string }> => {
+        setLoading(true);
+
+        try {
+            const response = await axios.post(`${API_BASE_URL}${REGISTER_API_URL}`, {
+                email,
+                username,
+                password,
+                full_name: fullName,
+                role
+            });
+
+            const data = response.data;
+
+            if (data.error_code === 0) {
+                // ✅ Registration succeeded — now login manually
+                const loginResult = await login(username, password);
+                if (loginResult.success) {
+                    return { success: true };
+                } else {
+                    return { success: false, error: "Registered but failed to log in" };
+                }
+            } else {
+                return {
+                    success: false,
+                    error: data.message || "Registration failed"
+                };
+            }
+        } catch (error) {
+            console.error("AuthProvider: Register error", error);
+
+            let errorMessage = "Registration failed";
+            if (axios.isAxiosError(error)) {
+                errorMessage = error.response?.data?.message || error.message || errorMessage;
+            }
+
+            return { success: false, error: errorMessage };
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
+
+
     return (
         <AuthContext.Provider value={{
             user,
             token,
             login,
+            register,
             logout,
             loading,
             refreshUser

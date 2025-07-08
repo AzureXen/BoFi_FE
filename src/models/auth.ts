@@ -12,5 +12,12 @@ export interface AuthContextType {
     login: (username: string, password: string) => Promise<{ success: boolean; error?: string }>;
     logout: () => void;
     loading: boolean;
+    register: (
+        email: string,
+        username: string,
+        password: string,
+        fullName: string,
+        role?: string
+    ) => Promise<{ success: boolean; error?: string }>;
     refreshUser: (username: string, password: string) => Promise<boolean>;
 }

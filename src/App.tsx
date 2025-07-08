@@ -18,6 +18,8 @@ import UserWishlist from "./pages/User/UserWishlist/UserWishlist.tsx";
 import {ToastContainer} from "react-toastify";
 import PurchaseHistory from "./pages/User/PurchaseHistory/PurchaseHistory.tsx";
 import ProductManager from "./pages/Admin/ProductManagement/ProductManager.tsx";
+import ActivateSubscription from "./pages/User/ActivateSubscription/ActivateSubscription.tsx";
+import RegisterPage from "./pages/User/Register/RegisterPage.tsx";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
                     <Route path="/wishlist" element={<UserWishlist/>} />
                     <Route path="/history" element={<PurchaseHistory/>} />
                     <Route path="/manage" element={<ProductManager/>} />
+                    <Route path="/subscription" element={<ActivateSubscription/>} />
+                    <Route path="/register" element={<RegisterPage/>} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

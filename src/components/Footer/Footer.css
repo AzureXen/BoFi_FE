@@ -23,18 +23,24 @@
     padding-left: 50px;
 }
 
-.about-dirtycoins {
+.about-strade {
+    margin: 20px 0 20px 39px;
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
-.dirty-coins-banner {
-    width:100%;
+.strade-banner {
+    width:80%;
     height:auto;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
 }
 
-.dirtycoins-social-media {
+.strade-social-media {
+    margin: 20px 0;
     width:100%;
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .icon-holder {
@@ -42,7 +48,7 @@
     height: 50px;
     display:flex;
     justify-content: center;
-    transform: translateX(-25px);
+    transform: translateX(5px);
 }
 
 .instagram-icon, .facebook-icon, .youtube-icon {
@@ -68,7 +74,7 @@
 }
 
 .bofi-description {
-    margin-left: 64px;
+    margin: 0 0 30px 64px;
     text-align: left;
 }
 .bofi-description h5{

@@ -1,0 +1,81 @@
+.activate-subscription {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    padding: 3rem 1rem;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.activate-subscription h4{
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.activate-subscription h3{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.subscription-option {
+    border: 2px solid #000000;
+    padding: 3rem 2rem;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.subscription-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subscription-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.subscription-content-divider {
+    height: 2px;
+    background-color: #888;
+    margin: 1rem 0;
+}
+
+.subscription-description {
+    flex-grow: 1;
+}
+
+.subscription-description p {
+    font-size: 1.1rem;
+    margin: 0.4rem 0;
+    line-height: 1.3rem;
+}
+
+.activate-subscription-button {
+    margin-top: 1.5rem;
+}
+
+.activate-subscription-button button {
+    background-color: #d3d3d3;
+    color: var(--main-color-1);
+    border: none;
+    padding: 1.1rem 2rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.activate-subscription-button button:hover {
+    background-color: #bcbcbc;
+}

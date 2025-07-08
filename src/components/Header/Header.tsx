@@ -47,7 +47,7 @@ const Header= () =>{
         <>
             <div className={`header ${showHeader ? "show" : "hide"}`}>
                 <div className={"notification"}>
-                    <p className={"notification-message"}>[PROMOTION]</p>
+                    <p className={"notification-message"}>“All apparel displayed is for illustrative purposes only. We would like to express our gratitude to Dirty Coins for the reference pieces.”</p>
                 </div>
                 <ActionBar/>
                 <NavBar showHeader={showHeader}/>
