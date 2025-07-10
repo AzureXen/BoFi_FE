@@ -18,10 +18,12 @@ import {useAuth} from "../../../components/Authentication/AuthProvider.tsx";
 import {toast} from "react-toastify";
 
 import {API_BASE_URL} from "../../../config.ts";
+const API_GET_TRIAL_TIMES = "/users/trial-time";
 import axios from "axios";
 const API_BODY_MEASUREMENT = "/measurements/measure-body";
 
 const UploadImage: React.FC = () => {
+    const [trialTimes, setTrialTimes] = useState(0);
 
     const navigate = useNavigate();
     const { user, loading, token} = useAuth();
@@ -30,6 +32,30 @@ const UploadImage: React.FC = () => {
     const [uploadedImage, setUploadedImage] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
+
+    useEffect(() => {
+        const fetchTrialTime = async () => {
+            if (!token) return;
+
+            try {
+                const response = await axios.get(`${API_BASE_URL}${API_GET_TRIAL_TIMES}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                const trial = response.data?.data?.trial_time ?? 0;
+                setTrialTimes(trial);
+
+            } catch (error) {
+                console.error("Failed to fetch trial time:", error);
+                toast.error("Failed to load trial time.");
+            }
+        };
+
+        fetchTrialTime();
+    }, [token]);
+
 
     useEffect(() => {
         if (!loading && user === null) {
@@ -140,6 +166,10 @@ const UploadImage: React.FC = () => {
                         onDrop={handleDrop}
                         onDragOver={handleDragOver}
                     >
+                        <div className="upload-trial-info">
+                            You have {trialTimes} trial{trialTimes === 1 ? "" : "s"} left
+                        </div>
+
                         {imagePreview ? (
                             <div className="image-preview-container">
                                 <img
@@ -183,10 +213,11 @@ const UploadImage: React.FC = () => {
                             type="file"
                             accept="image/*"
                             onChange={handleFileInputChange}
-                            style={{ display: 'none' }}
+                            style={{display: 'none'}}
                         />
                     </div>
                 </div>
+
 
                 <motion.button
                     whileHover={{scale: 1.05}}

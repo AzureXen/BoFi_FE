@@ -20,6 +20,8 @@ import PurchaseHistory from "./pages/User/PurchaseHistory/PurchaseHistory.tsx";
 import ProductManager from "./pages/Admin/ProductManagement/ProductManager.tsx";
 import ActivateSubscription from "./pages/User/ActivateSubscription/ActivateSubscription.tsx";
 import RegisterPage from "./pages/User/Register/RegisterPage.tsx";
+import ActivateDeepDive from "./pages/User/ActivateSubscription/ActivateDeepDive/ActivateDeepDive.tsx";
+import PaymentResult from "./pages/User/PaymentResult/PaymentResult.tsx";
 
 function App() {
   return (
@@ -44,7 +46,10 @@ function App() {
                     <Route path="/history" element={<PurchaseHistory/>} />
                     <Route path="/manage" element={<ProductManager/>} />
                     <Route path="/subscription" element={<ActivateSubscription/>} />
-                    <Route path="/register" element={<RegisterPage/>} />
+                    <Route path="/register" element={<RegisterPage/>} />/
+                    <Route path="deep-dive" element={<ActivateDeepDive/>} />
+                    <Route path="/payment-info" element={<PaymentResult />} />
+
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

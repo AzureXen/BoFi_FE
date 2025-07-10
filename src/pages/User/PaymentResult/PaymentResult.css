@@ -1,0 +1,23 @@
+.payment-result-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--main-color-2);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--main-color-1);
+}
+
+.payment-info-box {
+    margin-top: 20px;
+    text-align: left;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.payment-info-box p {
+    margin: 8px 0;
+    font-size: 16px;
+}
