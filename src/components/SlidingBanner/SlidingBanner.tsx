@@ -5,7 +5,7 @@ import img4 from "../../assets/slider/slide-img4.jpg";
 import img5 from "../../assets/slider/slide-img5.jpg";
 
 import "./SlidingBanner.css";
-import {motion, useMotionValue} from "framer-motion";
+import {motion, useMotionValue, type Transition } from "framer-motion";
 import {useEffect, useState} from "react";
 
 const imgs = [img1, img2, img3, img4, img5];
@@ -15,11 +15,11 @@ const imgs = [img1, img2, img3, img4, img5];
 const SlidingBanner = () => {
     const [imgIndex, setImgIndex] = useState(1);
 
-    const SPRING_OPTIONS = {
+    const SPRING_OPTIONS: Transition = {
         type: "spring",
-        mass: 3,
-        stiffness: 400,
-        damping: 50,
+        mass: 1,
+        stiffness: 100,
+        damping: 10,
     };
 
     const ONE_SECOND = 1000;
