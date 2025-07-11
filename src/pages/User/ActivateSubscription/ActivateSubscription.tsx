@@ -5,16 +5,15 @@ import ShortBanner from "../../../components/ShortBanner/ShortBanner.tsx";
 import { motion } from "framer-motion";
 import {API_BASE_URL} from "../../../config.ts";
 const API_ACTIVATE_FREE_TRIAL = "/users/activate-trial"
+const API_ACTIVATE_DEEP_DIVE = "/users/activate-deep-dive"
 import "./ActivateSubscription.css"
 import {useAuth} from "../../../components/Authentication/AuthProvider.tsx";
 import {toast} from "react-toastify";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 
 
 const ActivateSubscription = () => {
-    const { token } = useAuth();
-    const navigate = useNavigate();
+    const { user, token } = useAuth();
 
     const handleConnect = async () => {
         try {
@@ -50,8 +49,39 @@ const ActivateSubscription = () => {
         toast.info("Please contact us to activate the Enterprise plan.");
     };
 
-    const handleDeepDive = () => {
-        navigate("/deep-dive")
+    const handleDeepDive = async () => {
+        if (!user || !token) {
+            toast.warn("You must be logged in to activate Deep Dive!");
+            return;
+        }
+
+        try {
+            const body = {
+            };
+
+            const response = await axios.post(`${API_BASE_URL}${API_ACTIVATE_DEEP_DIVE}`, body, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            });
+
+            const result = response.data;
+
+            if (result.error_code === 0) {
+                const checkoutUrl = result.data?.checkoutUrl;
+                if (checkoutUrl) {
+                    window.location.href = checkoutUrl;
+                } else {
+                    toast.error("No checkout URL found.");
+                }
+            } else {
+                toast.error(result.message || "Could not create payment link.");
+            }
+        } catch (error) {
+            console.error("Payment error:", error);
+            toast.error("An error occurred while creating the payment link.");
+        }
     };
 
     const plans = [
