@@ -43,21 +43,21 @@ const Footer = () =>{
                         <div className="strade-social-media">
                             <motion.a whileHover={{scale: 1.1}}
 
-                                      href="https://www.instagram.com/strade.vn/" target="_blank"
+                                      href="https://www.facebook.com/profile.php?id=61576662721298" target="_blank"
                                       rel="noopener noreferrer">
                                 <div className="icon-holder">
                                     <img className={"instagram-icon"} src={Instagram} alt={"instagram-icon"}/>
                                 </div>
                             </motion.a>
 
-                            <motion.a whileHover={{scale:1.1}} href="https://www.facebook.com/strade.VN/" target="_blank"
+                            <motion.a whileHover={{scale:1.1}} href="https://www.facebook.com/profile.php?id=61576662721298" target="_blank"
                                rel="noopener noreferrer">
                                 <div className="icon-holder">
                                     <img className={"facebook-icon"} src={Facebook} alt={"facebook-icon"}/>
                                 </div>
                             </motion.a>
 
-                            <motion.a whileHover={{scale:1.1}} href="https://www.youtube.com/channel/UCxLwKCNi6FoZ0lKu6k3qFGA" target="_blank"
+                            <motion.a whileHover={{scale:1.1}} href="https://www.facebook.com/profile.php?id=61576662721298" target="_blank"
                                rel="noopener noreferrer">
                                 <div className="icon-holder">
                                     <img className={"youtube-icon"} src={Youtube} alt={"youtube-icon"}/>
