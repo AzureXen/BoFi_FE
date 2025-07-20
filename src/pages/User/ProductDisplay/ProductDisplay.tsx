@@ -217,11 +217,15 @@ const ProductDisplay = () =>{
                     <>
                         <ProductGrid products={products}/>
                         <div className="pagination">
-                            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                            <button onClick={handlePreviousPage}
+                                    disabled={currentPage === 1}
+                            >
                                 Previous
                             </button>
                             <span style={{color: "Black", margin: "0 20px"}}>Page {currentPage} of {maxPage}</span>
-                            <button onClick={handleNextPage} disabled={currentPage === maxPage}>
+                            <button onClick={handleNextPage}
+                                    disabled={currentPage === maxPage}
+                                >
                                 Next
                             </button>
                         </div>

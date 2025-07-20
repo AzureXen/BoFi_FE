@@ -1,6 +1,12 @@
 .product-display .pagination{
     margin: 20px 0;
 }
+.pagination button{
+    color:white;
+}
+.pagination button:disabled{
+    color: #959595;
+}
 .no-available-product{
     color:black;
     margin-bottom: 35px;

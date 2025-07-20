@@ -258,7 +258,8 @@ const UserProfileDetail:React.FC<IUserProfileDetail> = ({fullName, email, phone,
                             height: "35px",
                             display: "block",
                             borderRadius: "0px",
-                            marginTop: "30px"
+                            marginTop: "30px",
+                            color: "white"
                         }}
                         onClick={() => {
                             console.log("Save changes button clicked!");
