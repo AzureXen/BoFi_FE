@@ -10,7 +10,59 @@ import "./Actionbar.css"
 import {motion, useAnimation} from "framer-motion";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-const ActionBar = () =>{
+import {useAuth} from "../../Authentication/AuthProvider.tsx";
+
+import TransactionIcon from "../../../assets/transaction_icon_2.png"
+
+const NavigateTransactionDisplay= () =>{
+    const {user} = useAuth();
+    const navigate = useNavigate();
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        const checkUserRole = () => {
+            if (!user) {
+                return;
+            }
+
+            if (user.role === 'admin') {
+                setIsAdmin(true);
+                return;
+            }
+        };
+
+        checkUserRole();
+    }, [user, navigate]);
+
+    if (isAdmin){
+        return(
+            <>
+                <div className="staff-navigator"
+                     onClick={() => {
+                         navigate("/transactions");
+                     }}
+                >
+                    <motion.img
+                        className="transaction-icon"
+                        src={TransactionIcon}
+                        alt="transaction_icon"
+                        initial={{scale: 0.8, opacity: 0, rotate: -10}}
+                        animate={{scale: 1, opacity: 1, rotate: 0}}
+                        transition={{duration: 0.3, ease: "easeOut"}}
+                        whileHover={{
+                            scale: 1.1,
+                            rotate: 5,
+                            transition: {type: "spring", stiffness: 200},
+                        }}
+                    />
+                </div>
+            </>
+        )
+    } else return (<></>);
+}
+
+const ActionBar = () => {
+
     const [query, setQuery] = useState("");
 
     const [usingEnglish, setUsingEnglish] = useState(true);
@@ -27,15 +79,7 @@ const ActionBar = () =>{
             <div className="action-bar">
                 <div className="left-action-bar">
                     <StradeBanner/>
-
-
-                    {/*<div className="staff-navigator"*/}
-                    {/*onClick={()=>{*/}
-                    {/*    navigate("/manage");*/}
-                    {/*}}*/}
-                    {/*>*/}
-                    {/*    STAFF ONLY*/}
-                    {/*</div>*/}
+                    <NavigateTransactionDisplay/>
                 </div>
 
                 <div className="right-action-bar"

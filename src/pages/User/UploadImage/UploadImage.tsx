@@ -123,12 +123,18 @@ const UploadImage: React.FC = () => {
                 },
             });
 
+            const { error_code, message, data } = response.data;
+
+            if (error_code !== 0 || !data) {
+                throw new Error(message || "Unknown error during size analysis.");
+            }
+
             toast.success("Size analysis completed!");
-            console.log('Analysis result:', response.data);
+            console.log('Analysis result:', data);
 
             navigate('/measure', {
                 state: {
-                    measurementData: response.data.data,
+                    measurementData: data,
                 }
             });
 

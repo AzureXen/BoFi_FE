@@ -18,6 +18,8 @@
     margin-left: 40px;
     height: auto;
 }
+
+
 .strade-img:hover{
     cursor:pointer;
 }
@@ -58,6 +60,13 @@
     width: 2.5em;
     height: auto;
 }
+
+.transaction-icon{
+    display: inline-block;
+    width: 2.5em;
+    height: auto;
+}
+
 
 .upload, .cart, .user, .map {
     width: 2.5em;

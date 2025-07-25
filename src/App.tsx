@@ -22,6 +22,8 @@ import ActivateSubscription from "./pages/User/ActivateSubscription/ActivateSubs
 import RegisterPage from "./pages/User/Register/RegisterPage.tsx";
 import ActivateDeepDive from "./pages/User/ActivateSubscription/ActivateDeepDive/ActivateDeepDive.tsx";
 import PaymentResult from "./pages/User/PaymentResult/PaymentResult.tsx";
+import TransactionDisplay from "./pages/Admin/TransactionDisplay/TransactionDisplay.tsx";
+import AccessDenied from "./pages/Shared/AccessDenied/AccessDenied.tsx";
 
 function App() {
   return (
@@ -49,6 +51,9 @@ function App() {
                     <Route path="/register" element={<RegisterPage/>} />/
                     <Route path="deep-dive" element={<ActivateDeepDive/>} />
                     <Route path="/payment-info" element={<PaymentResult />} />
+
+                    <Route path="/transactions" element={<TransactionDisplay/> } />
+                    <Route path="/access-denied" element={<AccessDenied/> } />
 
                 </Routes>
             </BrowserRouter>
