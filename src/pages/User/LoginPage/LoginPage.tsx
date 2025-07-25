@@ -40,7 +40,6 @@ const LoginPage = () => {
             if (result.success) {
                 toast.success("Login Success!");
                 console.log("Login Success!");
-                navigate("/");
             } else {
                 toast.error("Login Failed!");
                 console.error("Login failed.");
@@ -52,10 +51,13 @@ const LoginPage = () => {
         }
     };
 
+
     useEffect(() => {
         if (user) {
-            navigate("/");
-            console.log("User already logged in. Navigating back to homepage.");
+            if(user.role === "admin"){
+                navigate("/transactions")
+            }
+            else navigate("/");
         }
     }, [user, navigate]);
 
